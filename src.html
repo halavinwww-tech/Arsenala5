@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trīs Maisi — Arsenāla iela 5, Rīga</title>
+<meta name="description" content="Trīs Maisi — 18. gs. noliktavu komplekss Arsenāla ielā 5, Vecrīgā. ~1 850 m² rekonstrukcijas projekts: 27–32 dzīvokļi, komercplatības, 8 A.M. arhitekti.">
+<meta property="og:title" content="Trīs Maisi — Arsenāla iela 5, Vecrīga">
+<meta property="og:description" content="Vēsturiska noliktavu kompleksa rekonstrukcija Vecrīgā. ~1 850 m², 27–32 dzīvokļi, GDV €8.3M.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2a1d18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%238f3a28'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23f4efe6' text-anchor='middle'%3E5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Place","name":"Trīs Maisi — Arsenāla iela 5","description":"18th-century warehouse complex in Riga Old Town, State architectural monument No. 6578, reconstruction project by 8 A.M. architects.","address":{"@type":"PostalAddress","streetAddress":"Arsenāla iela 5","addressLocality":"Rīga","postalCode":"LV-1050","addressCountry":"LV"},"geo":{"@type":"GeoCoordinates","latitude":56.95107,"longitude":24.10304}}
+</script>
+<style>
+:root{
+  --paper:#f5f0e8; --paper-2:#ece4d7; --ink:#231a16; --ink-2:#5c4f47; --line:#d8ccbb;
+  --brick:#8f3a28; --brick-2:#b0553c; --night:#2a1d18; --cream:#f4efe6;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,-apple-system,sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-variant-numeric:lining-nums}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(34px,4.6vw,56px);margin-bottom:18px}
+h3{font-size:26px;margin-bottom:8px}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--brick);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.lead{font-size:18px;color:var(--ink-2);max-width:680px}
+section{padding:110px 0}
+.num{font-variant-numeric:lining-nums tabular-nums}
+
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(245,240,232,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.brand{font:600 22px/1 var(--serif);letter-spacing:.06em;text-decoration:none;color:var(--cream);display:flex;align-items:baseline;gap:10px;white-space:nowrap}
+.brand small{font:500 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+header.solid .brand{color:var(--ink)}
+.links{display:flex;gap:26px;list-style:none}
+.links a{font-size:14px;text-decoration:none;color:rgba(244,239,230,.85)}
+.links a:hover{color:#fff}
+header.solid .links a{color:var(--ink-2)}
+header.solid .links a:hover{color:var(--brick)}
+.lang{display:flex;gap:2px;border:1px solid rgba(244,239,230,.35);border-radius:999px;padding:3px}
+header.solid .lang{border-color:var(--line)}
+.lang button{background:none;border:0;font:600 11px/1 var(--sans);letter-spacing:.08em;padding:7px 10px;border-radius:999px;cursor:pointer;color:rgba(244,239,230,.8)}
+header.solid .lang button{color:var(--ink-2)}
+.lang button.on{background:var(--brick);color:#fff!important}
+@media(max-width:920px){.links{display:none}}
+@media(max-width:480px){.brand small{display:none}.wrap{padding:0 16px}section{padding:80px 0}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);padding:0 0 80px;overflow:hidden;background:var(--night)}
+.hero-bg{position:absolute;inset:0;background:url("assets/photo-2.jpg") center 30%/cover no-repeat;transform:scale(1.04)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,17,13,.55) 0%,rgba(26,17,13,.25) 35%,rgba(26,17,13,.88) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero .eyebrow{color:#e8b39f}
+.hero h1{font-size:clamp(60px,11vw,150px);font-weight:500;letter-spacing:.02em;line-height:.9}
+.hero h1 em{font-style:italic;color:#e8b39f}
+.hero .sub{font:500 clamp(18px,2.2vw,24px)/1.4 var(--serif);font-style:italic;margin:18px 0 34px;max-width:640px;color:rgba(244,239,230,.9)}
+.hero-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(244,239,230,.25);padding-top:26px;gap:20px;max-width:900px}
+.hero-facts b{display:block;font:500 clamp(28px,3.4vw,40px)/1 var(--serif)}
+.hero-facts span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.72}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--brick);color:#fff;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.04em;padding:15px 26px;border-radius:2px;transition:background .2s}
+.cta:hover{background:var(--brick-2)}
+.cta.ghost{background:transparent;border:1px solid rgba(244,239,230,.5)}
+.cta.ghost:hover{background:rgba(244,239,230,.1)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:54px}
+@media(max-width:640px){.hero-facts{grid-template-columns:repeat(2,1fr)}.hero{padding-bottom:48px}}
+
+/* heritage */
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.photos img{aspect-ratio:2/3;object-fit:cover;width:100%;filter:saturate(.92)}
+.photos figure:nth-child(2){transform:translateY(-28px)}
+.photos figcaption{font-size:12px;color:var(--ink-2);margin-top:8px;font-style:italic;font-family:var(--serif);font-size:15px}
+.badges{display:flex;flex-direction:column;gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.badges div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.badges b{font-weight:600;text-align:right}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:48px}}
+
+/* three houses */
+.dark{background:var(--night);color:var(--cream)}
+.dark .lead{color:rgba(244,239,230,.72)}
+.dark .eyebrow{color:#e8b39f}
+.houses{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,239,230,.14);margin-top:56px;border:1px solid rgba(244,239,230,.14)}
+.house{background:var(--night);padding:38px 32px 34px}
+.house .idx{font:500 64px/1 var(--serif);color:#e8b39f;opacity:.9}
+.house h3{margin:18px 0 4px}
+.house .tr{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-bottom:16px}
+.house p{font-size:15px;color:rgba(244,239,230,.75)}
+.house .use{margin-top:22px;padding-top:16px;border-top:1px solid rgba(244,239,230,.14);font-size:13px;letter-spacing:.06em;color:#e8b39f}
+.facade{margin-top:64px;background:#fff;padding:26px;border-radius:2px}
+.facade img{width:100%}
+.facade-cap{display:flex;justify-content:space-between;font-size:13px;color:rgba(244,239,230,.6);margin-top:14px}
+@media(max-width:860px){.houses{grid-template-columns:1fr}}
+
+/* numbers */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:1px solid var(--line)}
+.stat{padding:30px 22px 30px 0;border-bottom:1px solid var(--line)}
+.stat b{display:block;font:500 clamp(38px,4.4vw,56px)/1 var(--serif);color:var(--ink)}
+.stat b small{font-size:.45em;margin-left:4px;color:var(--ink-2)}
+.stat span{display:block;margin-top:10px;font-size:13.5px;color:var(--ink-2)}
+.stack{margin-top:60px;display:grid;gap:6px}
+.lvl{display:grid;grid-template-columns:110px 1fr 120px;align-items:center;gap:20px;padding:18px 22px;background:#fff;border-left:4px solid var(--line)}
+.lvl.res{border-left-color:var(--brick)}
+.lvl.com{border-left-color:#c99a52}
+.lvl.tec{border-left-color:#8a8078}
+.lvl .fl{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.lvl .ds{font-size:15px}
+.lvl .ar{font:500 24px/1 var(--serif);text-align:right}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.lvl{grid-template-columns:1fr auto}.lvl .fl{grid-column:1/-1}}
+
+/* plans */
+.plans{background:var(--paper-2)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:36px 0 22px}
+.tabs button{background:transparent;border:1px solid var(--line);color:var(--ink-2);font:500 14px/1 var(--sans);padding:12px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
+.tabs button:hover{border-color:var(--brick);color:var(--brick)}
+.tabs button.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.plan-box{background:#fff;padding:28px;display:grid;grid-template-columns:1fr 300px;gap:34px;align-items:start}
+.plan-box img{width:100%;cursor:zoom-in}
+.plan-side h3{font-size:30px}
+.plan-side p{font-size:14.5px;color:var(--ink-2);margin-bottom:18px}
+.rooms{width:100%;border-collapse:collapse;font-size:13.5px}
+.rooms td{padding:7px 0;border-bottom:1px solid #eee4d6}
+.rooms td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.rooms tr.tot td{font-weight:600;border-bottom:0;padding-top:12px}
+.credit{margin-top:18px;font-size:13px;color:var(--ink-2)}
+@media(max-width:900px){.plan-box{grid-template-columns:1fr;padding:16px}}
+.lightbox{position:fixed;inset:0;background:rgba(20,14,11,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lightbox.on{display:flex}
+.lightbox img{max-height:92vh;background:#fff;padding:12px}
+
+/* finance */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.kpi{background:#fff;padding:30px 28px;border-top:3px solid var(--brick)}
+.kpi.alt{border-top-color:var(--ink)}
+.kpi span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.kpi b{display:block;font:500 clamp(36px,4vw,50px)/1.05 var(--serif);margin:12px 0 6px}
+.kpi p{font-size:13.5px;color:var(--ink-2)}
+.fin-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;margin-top:28px}
+.card{background:#fff;padding:30px}
+.card h3{font-size:24px;margin-bottom:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);text-align:left;padding:0 0 12px;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 0;border-bottom:1px solid #efe7da}
+.tbl th:not(:first-child),.tbl td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;padding-left:14px;white-space:nowrap}
+.tbl tr.tot td{font-weight:600;border-bottom:0;border-top:2px solid var(--ink);color:var(--brick)}
+.bar{height:12px;display:flex;margin:6px 0 18px;border-radius:2px;overflow:hidden}
+.bar i{display:block}
+.legend{display:grid;gap:8px;font-size:13.5px}
+.legend div{display:flex;justify-content:space-between;gap:12px}
+.legend b{white-space:nowrap}
+.legend em{font-style:normal;display:inline-flex;align-items:center;gap:8px}
+.legend em::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--c)}
+.note{font-size:12.5px;color:var(--ink-2);margin-top:18px;font-style:italic}
+@media(max-width:900px){.kpis{grid-template-columns:1fr 1fr}.fin-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.kpis{gap:10px}.kpi{padding:20px 16px}.kpi p{font-size:12.5px}.card{padding:20px 16px}.tbl{font-size:13px}}
+
+/* strategies */
+.strats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.strat{border:1px solid var(--line);padding:32px 28px;background:var(--paper);position:relative}
+.strat .n{font:500 15px/1 var(--serif);font-style:italic;color:var(--brick)}
+.strat h3{margin:14px 0 10px}
+.strat p{font-size:14.5px;color:var(--ink-2)}
+.strat .tag{display:inline-block;margin-top:18px;font:600 12px/1 var(--sans);letter-spacing:.06em;background:var(--ink);color:var(--cream);padding:8px 12px;border-radius:999px}
+@media(max-width:900px){.strats{grid-template-columns:1fr}}
+
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
+#map{height:460px;background:var(--paper-2);border:1px solid var(--line)}
+.near{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
+.near li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.near li b{font-weight:500;color:var(--brick);white-space:nowrap}
+.pin{width:38px;height:48px}
+@media(max-width:900px){.loc{grid-template-columns:1fr}#map{height:360px}}
+
+/* contact */
+.contact{text-align:center}
+.contact .lead{margin:0 auto}
+.contact .eyebrow{justify-content:center}
+.contact .eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
+.c-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:40px}
+.c-row .cta.ghost{color:var(--cream)}
+.c-meta{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:56px;padding-top:34px;border-top:1px solid rgba(244,239,230,.14);font-size:14px;color:rgba(244,239,230,.7)}
+.c-meta b{display:block;font:500 20px/1.3 var(--serif);color:var(--cream);margin-bottom:4px}
+footer{background:#1d140f;color:rgba(244,239,230,.5);font-size:13px;padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* lining numerals (font shorthand resets them) */
+.stat b,.kpi b,.hero-facts b,.lvl .ar,.house .idx,.hero h1,.strat .n,.c-meta b,.hero .sub,h2,h3{font-variant-numeric:lining-nums}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top">TRĪS MAISI <small>Arsenāla 5</small></a>
+    <ul class="links">
+      <li><a href="#heritage" data-i18n="nav.heritage">Mantojums</a></li>
+      <li><a href="#concept" data-i18n="nav.concept">Koncepcija</a></li>
+      <li><a href="#plans" data-i18n="nav.plans">Plānojums</a></li>
+      <li><a href="#finance" data-i18n="nav.finance">Finanses</a></li>
+      <li><a href="#location" data-i18n="nav.location">Atrašanās vieta</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Kontakti</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="lv">LV</button><button data-lang="en">EN</button><button data-lang="ru">RU</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Arsenāla iela 5 fasāde"></div>
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="hero.eyebrow">Arsenāla iela 5 · Vecrīga · UNESCO</div>
+    <h1>Trīs <em>Maisi</em></h1>
+    <p class="sub" data-i18n="hero.sub">18. gadsimta noliktavu komplekss Rīgas vēsturiskajā centrā — gatavs pārtapšanai par 27–32 dzīvokļu un komercplatību namu.</p>
+    <div class="hero-cta">
+      <a class="cta" href="#contact" data-i18n="hero.cta1">Pieprasīt informāciju</a>
+      <a class="cta ghost" href="#finance" data-i18n="hero.cta2">Finanšu rādītāji</a>
+    </div>
+    <div class="hero-facts">
+      <div><b class="num">~1 850 m²</b><span data-i18n="hero.f1">Lietderīgā platība</span></div>
+      <div><b class="num">27–32</b><span data-i18n="hero.f2">Dzīvokļi</span></div>
+      <div><b class="num">€8.3M</b><span data-i18n="hero.f3">Realizācijas vērtība</span></div>
+      <div><b class="num">24.5%</b><span data-i18n="hero.f4">IRR gadā</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="heritage">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="her.eyebrow">Vēsturiskais mantojums</div>
+      <h2 data-i18n="her.title">Trīs noliktavas. Viens nams. Trīs gadsimti.</h2>
+      <p class="lead" data-i18n="her.lead">Ēka Arsenāla ielā 5 vēsturiski izveidojusies no trim noliktavām — «Nastu nesējs», «Trīs brāļi» un «Cukura vārītājs». Saglabājušās autentiskas 18. gadsimta fasādes, nesošās konstrukcijas, sijas un kolonnas, vēsturiskie preču pacēlāji.</p>
+      <div class="badges">
+        <div><span data-i18n="her.b1">Valsts nozīmes arhitektūras piemineklis</span><b>Nr. 6578</b></div>
+        <div><span data-i18n="her.b2">Rīgas vēsturiskais centrs — pilsētbūvniecības piemineklis</span><b>Nr. 7442</b></div>
+        <div><span data-i18n="her.b3">UNESCO Pasaules mantojuma vieta</span><b>Nr. 852</b></div>
+        <div><span data-i18n="her.b4">Zemes gabals un ēka</span><b data-i18n="her.b4v">Viens īpašums</b></div>
+      </div>
+    </div>
+    <div class="photos rv">
+      <figure><img src="assets/photo-3.jpg" alt="Nastu nesējs" loading="lazy"><figcaption data-i18n="h.n1">Nastu nesējs</figcaption></figure>
+      <figure><img src="assets/photo-2.jpg" alt="Trīs brāļi" loading="lazy"><figcaption data-i18n="h.n2">Trīs brāļi</figcaption></figure>
+      <figure><img src="assets/photo-1.jpg" alt="Cukura vārītājs" loading="lazy"><figcaption data-i18n="h.n3">Cukura vārītājs</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="concept" class="dark">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="con.eyebrow">Arhitektūras koncepcija · 8 A.M.</div>
+      <h2 data-i18n="con.title">21. gadsimta dzīvokļi 18. gadsimta telpā</h2>
+      <p class="lead" data-i18n="con.lead">Skiču projektu izstrādājis birojs «8 A.M.» (vadošais arhitekts Juris Lasis). Ielas fasāde un apjoms netiek mainīti — katra no trim daļām kļūst par relatīvi patstāvīgu namu ar savu ieeju, jaunu iekšpagalmu un kāpņu telpu, kas ienes dabisko gaismu dzīvokļos.</p>
+    </div>
+    <div class="houses rv">
+      <div class="house">
+        <div class="idx">I</div>
+        <h3 data-i18n="h.n1">Nastu nesējs</h3>
+        <div class="tr">Burden Carrier</div>
+        <p data-i18n="con.h1">Rietumu korpuss ar galvenajām kāpnēm un plašāko komercplatību ielas līmenī.</p>
+        <div class="use" data-i18n="con.u1">Restorāns · vīna bārs · kafejnīca</div>
+      </div>
+      <div class="house">
+        <div class="idx">II</div>
+        <h3 data-i18n="h.n2">Trīs brāļi</h3>
+        <div class="tr">Three Brothers</div>
+        <p data-i18n="con.h2">Centrālais korpuss ar liftu un zaļo iekšpagalmu, atjaunoto preču pacēlāju zem jumta.</p>
+        <div class="use" data-i18n="con.u2">Kopstrādes telpa · birojs</div>
+      </div>
+      <div class="house">
+        <div class="idx">III</div>
+        <h3 data-i18n="h.n3">Cukura vārītājs</h3>
+        <div class="tr">Sugar Cooker</div>
+        <p data-i18n="con.h3">Austrumu korpuss ar atsevišķu ieeju un iekšpagalmu, piemērots labsajūtas funkcijai.</p>
+        <div class="use" data-i18n="con.u3">Skaistumkopšana · SPA · fitness</div>
+      </div>
+    </div>
+    <div class="facade rv">
+      <img src="assets/facade.jpg" alt="Fasāde — 8 A.M. skice" loading="lazy">
+    </div>
+    <div class="facade-cap"><span data-i18n="con.fcap">Ielas fasāde pēc rekonstrukcijas — skiču projekts</span><span>8 A.M. Architects</span></div>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="num.eyebrow">Objekts skaitļos</div>
+      <h2 data-i18n="num.title">Kompakts, daudzfunkcionāls, pašpietiekams</h2>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b class="num">1 850<small>m²</small></b><span data-i18n="num.s1">Kopējā lietderīgā platība (NLA)</span></div>
+      <div class="stat"><b class="num">1 390<small>m²</small></b><span data-i18n="num.s2">Dzīvojamā zona, 2.–4. stāvs</span></div>
+      <div class="stat"><b class="num">351<small>m²</small></b><span data-i18n="num.s3">Komercplatības ielas līmenī</span></div>
+      <div class="stat"><b class="num">24–39<small>m²</small></b><span data-i18n="num.s4">Dzīvokļu platība (tipveida stāvs)</span></div>
+    </div>
+    <div class="stack rv">
+      <div class="lvl res"><span class="fl" data-i18n="num.l4">2.–4. stāvs</span><span class="ds" data-i18n="num.d4">Dzīvokļi — 27–32 vienības, daļa ar augstiem griestiem pēc starpstāvu pārsegumu demontāžas</span><span class="ar num">1 390 m²</span></div>
+      <div class="lvl com"><span class="fl" data-i18n="num.l1">1. stāvs</span><span class="ds" data-i18n="num.d1">Trīs komerctelpas ar atsevišķām ieejām no Arsenāla ielas, 3 iekšpagalmi, lifts</span><span class="ar num">351 m²</span></div>
+      <div class="lvl tec"><span class="fl" data-i18n="num.l0">−1. stāvs</span><span class="ds" data-i18n="num.d0">Tehniskās telpas / noliktavas</span><span class="ar num">108 m²</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="plans">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="pl.eyebrow">Plānojums</div>
+      <h2 data-i18n="pl.title">Stāvu plāni un griezums</h2>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="on" data-plan="ground" data-i18n="pl.t1">1. stāvs · komercija</button>
+      <button data-plan="typical" data-i18n="pl.t2">2.–4. stāvs · dzīvokļi</button>
+      <button data-plan="basement" data-i18n="pl.t3">−1. stāvs</button>
+      <button data-plan="section" data-i18n="pl.t4">Griezums</button>
+    </div>
+    <div class="plan-box">
+      <img id="planImg" src="assets/plan-ground.jpg" alt="">
+      <div class="plan-side">
+        <h3 id="planTitle"></h3>
+        <p id="planText"></p>
+        <table class="rooms" id="planRooms"></table>
+      </div>
+    </div>
+    <p class="credit" data-i18n="pl.credit">Avots: 8 A.M. skiču projekts «Tris Maisi | Three Sacks». Platības — indikatīvas, precizējamas būvprojekta stadijā.</p>
+  </div>
+</section>
+
+<section id="finance">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="fin.eyebrow">Biznesa plāns</div>
+      <h2 data-i18n="fin.title">Investīciju rādītāji</h2>
+      <p class="lead" data-i18n="fin.lead">Pilna būvniecības un projektēšanas budžeta aplēse un prognozētā realizācijas vērtība, balstoties uz Vecrīgas tirgus cenām.</p>
+    </div>
+    <div class="kpis rv">
+      <div class="kpi alt"><span>CAPEX</span><b class="num">€5.05M</b><p data-i18n="fin.k1">Kopējās kapitalizētās izmaksas</p></div>
+      <div class="kpi alt"><span>GDV</span><b class="num">€8.32M</b><p data-i18n="fin.k2">Bruto realizācijas vērtība</p></div>
+      <div class="kpi"><span data-i18n="fin.k3t">Bruto peļņa</span><b class="num">€3.27M</b><p data-i18n="fin.k3">Pirms nodokļiem un finansēšanas</p></div>
+      <div class="kpi"><span>ROI</span><b class="num">64.7%</b><p data-i18n="fin.k4">Ieguldījumu atdeve projektam</p></div>
+      <div class="kpi"><span>IRR</span><b class="num">24.5%</b><p data-i18n="fin.k5">Iekšējā ienesīguma norma gadā</p></div>
+      <div class="kpi alt"><span data-i18n="fin.k6t">Cikls</span><b class="num">24–30</b><p data-i18n="fin.k6">Mēneši līdz pilnai realizācijai</p></div>
+    </div>
+    <div class="fin-grid rv">
+      <div class="card">
+        <h3 data-i18n="fin.gdv">Realizācijas vērtības prognoze</h3>
+        <table class="tbl">
+          <thead><tr><th data-i18n="fin.th1">Segments</th><th>m²</th><th>€/m²</th><th data-i18n="fin.th4">Ieņēmumi</th></tr></thead>
+          <tbody>
+            <tr><td data-i18n="fin.r1">Dzīvokļi (2.–4. st.)</td><td>1 390</td><td>4 500</td><td>€6 255 000</td></tr>
+            <tr><td data-i18n="fin.r2">Komercplatības (1. st.)</td><td>351</td><td>5 200</td><td>€1 825 200</td></tr>
+            <tr><td data-i18n="fin.r3">Noliktavas (−1. st.)</td><td>108</td><td>2 200</td><td>€237 600</td></tr>
+            <tr class="tot"><td>GDV</td><td>1 849</td><td>—</td><td>€8 317 800</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3 data-i18n="fin.capex">Budžeta struktūra</h3>
+        <div class="bar"><i style="width:95.2%;background:var(--brick)"></i><i style="width:4.8%;background:#c99a52"></i></div>
+        <div class="legend">
+          <div><em style="--c:var(--brick)" data-i18n="fin.c1">Būvdarbi «atslēgas galā» (2 600 €/m²)</em><b class="num">€4 810 000</b></div>
+          <div><em style="--c:#c99a52" data-i18n="fin.c2">Projektēšana, autoruzraudzība, juridiskais atbalsts</em><b class="num">€240 000</b></div>
+          <div style="border-top:1px solid var(--line);padding-top:10px;margin-top:4px"><em style="--c:var(--ink)">CAPEX</em><b class="num">€5 050 000</b></div>
+        </div>
+        <p class="note" data-i18n="fin.note">Rādītāji ir indikatīvi un balstīti uz biznesa plāna pieņēmumiem; tie nav investīciju piedāvājums.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="strategy" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="st.eyebrow">Realizācijas stratēģijas</div>
+      <h2 data-i18n="st.title">Trīs ceļi uz vērtību</h2>
+    </div>
+    <div class="strats rv">
+      <div class="strat"><div class="n">01</div><h3 data-i18n="st.1t">Pakāpeniska pārdošana</h3><p data-i18n="st.1p">Dzīvokļu un komercplatību pārdošana gala pircējiem jau rekonstrukcijas stadijā (presale & retail).</p><span class="tag">GDV €8.3M</span></div>
+      <div class="strat"><div class="n">02</div><h3 data-i18n="st.2t">Nomas bizness</h3><p data-i18n="st.2p">Aparthotel un komercplatību ilgtermiņa un īstermiņa noma ar vienotu operatoru.</p><span class="tag" data-i18n="st.2tag">NOI ~€420 000 / gadā</span></div>
+      <div class="strat"><div class="n">03</div><h3 data-i18n="st.3t">Pārdošana vienā lotē</h3><p data-i18n="st.3p">Gatava nomas biznesa nodošana institucionālam investoram vai attīstības fondam.</p><span class="tag" data-i18n="st.3tag">Institucionāls exit</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="location" class="plans">
+  <div class="wrap loc">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="loc.eyebrow">Atrašanās vieta</div>
+      <h2 data-i18n="loc.title">Vecrīgas sirdī, pie Rīgas pils</h2>
+      <p class="lead" data-i18n="loc.lead">Arsenāla iela savieno Pils laukumu ar Jēkaba kazarmām — klusa, gājējiem draudzīga iela starp Daugavu, Doma laukumu un Bastejkalna parku.</p>
+      <ul class="near">
+        <li><span data-i18n="loc.p1">Rīgas pils · Pils laukums</span><b>2 min</b></li>
+        <li><span data-i18n="loc.p2">Mākslas muzejs «Rīgas Birža»</span><b>3 min</b></li>
+        <li><span data-i18n="loc.p3">Doma laukums</span><b>5 min</b></li>
+        <li><span data-i18n="loc.p4">Daugavas krastmala</span><b>3 min</b></li>
+        <li><span data-i18n="loc.p5">Brīvības piemineklis</span><b>10 min</b></li>
+      </ul>
+    </div>
+    <div id="map" class="rv" aria-label="Map"></div>
+  </div>
+</section>
+
+<section id="contact" class="dark contact">
+  <div class="wrap rv">
+    <div class="eyebrow" data-i18n="ct.eyebrow">Kontakti</div>
+    <h2 data-i18n="ct.title">Iepazīstieties ar projektu tuvāk</h2>
+    <p class="lead" data-i18n="ct.lead">Pieprasiet pilnu informatīvo memorandu, arhitektūras dokumentāciju un finanšu modeli vai piesakiet objekta apskati.</p>
+    <div class="c-row">
+      <a class="cta" id="mailBtn" href="mailto:info@arsenala5.lv?subject=Arsen%C4%81la%205%20%E2%80%94%20Tr%C4%ABs%20Maisi" data-i18n="ct.mail">Rakstīt e-pastu</a>
+      <a class="cta ghost" href="tel:+37120000000">+371 20 000 000</a>
+    </div>
+    <div class="c-meta">
+      <div><b>SIA «Arsenāls 5»</b><span data-i18n="ct.owner">Zemes un ēkas īpašnieks</span></div>
+      <div><b>Arsenāla iela 5</b>Rīga, LV-1050</div>
+      <div><b>info@arsenala5.lv</b><span data-i18n="ct.reply">Atbildam 1 darba dienas laikā</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SIA «Arsenāls 5» · Trīs Maisi</span>
+    <span data-i18n="ft.arch">Arhitektūra: 8 A.M. Architects</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lb"><img alt=""></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const I18N={
+lv:{},
+en:{
+"nav.heritage":"Heritage","nav.concept":"Concept","nav.plans":"Plans","nav.finance":"Financials","nav.location":"Location","nav.contact":"Contact",
+"hero.eyebrow":"Arsenāla Street 5 · Riga Old Town · UNESCO","hero.sub":"An 18th-century warehouse complex in the historic heart of Riga — ready to become a building of 27–32 apartments and commercial space.","hero.cta1":"Request information","hero.cta2":"Financials","hero.f1":"Net lettable area","hero.f2":"Apartments","hero.f3":"Gross development value","hero.f4":"IRR per year",
+"her.eyebrow":"Historic heritage","her.title":"Three warehouses. One building. Three centuries.","her.lead":"The building at Arsenāla Street 5 grew out of three warehouses — “Burden Carrier”, “Three Brothers” and “Sugar Cooker”. Authentic 18th-century façades, load-bearing structures, beams, columns and historic goods hoists have survived.","her.b1":"Architectural monument of State importance","her.b2":"Historic Centre of Riga — urban monument","her.b3":"UNESCO World Heritage Site","her.b4":"Land plot and building","her.b4v":"Single title",
+"h.n1":"Burden Carrier","h.n2":"Three Brothers","h.n3":"Sugar Cooker",
+"con.eyebrow":"Architectural concept · 8 A.M.","con.title":"21st-century apartments in an 18th-century space","con.lead":"The sketch design is by the “8 A.M.” studio (lead architect Juris Lasis). The street façade and volume remain unchanged — each of the three parts becomes a relatively independent house with its own entrance, a new inner courtyard and stairwell that bring daylight into the apartments.","con.h1":"Western block with the main stair and the largest street-level commercial space.","con.u1":"Restaurant · wine bar · café","con.h2":"Central block with lift and green courtyard, and a restored goods hoist under the roof.","con.u2":"Co-working · office","con.h3":"Eastern block with its own entrance and courtyard, suited for a wellness function.","con.u3":"Beauty · SPA · fitness","con.fcap":"Street façade after reconstruction — sketch design",
+"num.eyebrow":"Key figures","num.title":"Compact, mixed-use, self-contained","num.s1":"Total net lettable area (NLA)","num.s2":"Residential, floors 2–4","num.s3":"Street-level commercial","num.s4":"Apartment size (typical floor)","num.l4":"Floors 2–4","num.d4":"Apartments — 27–32 units, some with double-height ceilings after removal of intermediate slabs","num.l1":"Ground floor","num.d1":"Three commercial units with separate entrances from Arsenāla Street, 3 courtyards, lift","num.l0":"Basement","num.d0":"Technical premises / storage",
+"pl.eyebrow":"Layout","pl.title":"Floor plans and section","pl.t1":"Ground · commercial","pl.t2":"Floors 2–4 · apartments","pl.t3":"Basement","pl.t4":"Section","pl.credit":"Source: 8 A.M. sketch design “Tris Maisi | Three Sacks”. Areas are indicative and subject to the construction design stage.",
+"fin.eyebrow":"Business plan","fin.title":"Investment metrics","fin.lead":"Full construction and design budget estimate and projected sales value based on Riga Old Town market prices.","fin.k1":"Total capitalised costs","fin.k2":"Gross development value","fin.k3t":"Gross profit","fin.k3":"Before taxes and financing","fin.k4":"Return on investment","fin.k5":"Internal rate of return p.a.","fin.k6t":"Cycle","fin.k6":"Months to full realisation","fin.gdv":"Sales value forecast","fin.th1":"Segment","fin.th4":"Revenue","fin.r1":"Apartments (floors 2–4)","fin.r2":"Commercial (ground)","fin.r3":"Storage (basement)","fin.capex":"Budget structure","fin.c1":"Turnkey construction (€2,600/m²)","fin.c2":"Design, author supervision, legal","fin.note":"Figures are indicative and based on business-plan assumptions; this is not an investment offer.",
+"st.eyebrow":"Exit strategies","st.title":"Three routes to value","st.1t":"Phased sales","st.1p":"Sale of apartments and commercial units to end buyers during reconstruction (presale & retail).","st.2t":"Rental business","st.2p":"Long- and short-term letting of an aparthotel and commercial units through a single operator.","st.2tag":"NOI ~€420,000 / year","st.3t":"Single-lot sale","st.3p":"Transfer of the stabilised rental business to an institutional investor or development fund.","st.3tag":"Institutional exit",
+"loc.eyebrow":"Location","loc.title":"In the heart of Old Riga, by Riga Castle","loc.lead":"Arsenāla Street links Castle Square with the Jacob’s Barracks — a quiet, walkable street between the Daugava, Dome Square and Bastejkalns park.","loc.p1":"Riga Castle · Castle Square","loc.p2":"Art Museum “Riga Bourse”","loc.p3":"Dome Square","loc.p4":"Daugava embankment","loc.p5":"Freedom Monument",
+"ct.eyebrow":"Contact","ct.title":"Discover the project in detail","ct.lead":"Request the full information memorandum, architectural documentation and financial model, or book a site visit.","ct.mail":"Send an e-mail","ct.owner":"Owner of the land and building","ct.reply":"We reply within 1 business day","ft.arch":"Architecture: 8 A.M. Architects"
+},
+ru:{
+"nav.heritage":"Наследие","nav.concept":"Концепция","nav.plans":"Планировка","nav.finance":"Финансы","nav.location":"Локация","nav.contact":"Контакты",
+"hero.eyebrow":"ул. Арсенала, 5 · Старая Рига · ЮНЕСКО","hero.sub":"Складской комплекс XVIII века в историческом центре Риги — готов стать домом на 27–32 апартамента с коммерческими помещениями.","hero.cta1":"Запросить информацию","hero.cta2":"Финансовые показатели","hero.f1":"Полезная площадь","hero.f2":"Апартаменты","hero.f3":"Выручка (GDV)","hero.f4":"IRR годовых",
+"her.eyebrow":"Историческое наследие","her.title":"Три склада. Один дом. Три столетия.","her.lead":"Здание на ул. Арсенала, 5 исторически сложилось из трёх складов — «Nastu nesējs» (Носильщик), «Trīs brāļi» (Три брата) и «Cukura vārītājs» (Сахаровар). Сохранились аутентичные фасады XVIII века, несущие конструкции, балки, колонны и исторические грузовые подъёмники.","her.b1":"Памятник архитектуры государственного значения","her.b2":"Исторический центр Риги — памятник градостроительства","her.b3":"Объект всемирного наследия ЮНЕСКО","her.b4":"Земельный участок и здание","her.b4v":"Единая собственность",
+"h.n1":"Носильщик","h.n2":"Три брата","h.n3":"Сахаровар",
+"con.eyebrow":"Архитектурная концепция · 8 A.M.","con.title":"Апартаменты XXI века в пространстве XVIII века","con.lead":"Эскизный проект разработан бюро «8 A.M.» (главный архитектор Юрис Ласис). Уличный фасад и объём не меняются — каждая из трёх частей становится относительно самостоятельным домом с отдельным входом, новым внутренним двором и лестничной клеткой, которые приносят в апартаменты дневной свет.","con.h1":"Западный корпус с главной лестницей и самым большим коммерческим помещением на уровне улицы.","con.u1":"Ресторан · винный бар · кафе","con.h2":"Центральный корпус с лифтом и зелёным двором, восстановленным грузовым подъёмником под крышей.","con.u2":"Коворкинг · офис","con.h3":"Восточный корпус с отдельным входом и двором, подходит для wellness-функции.","con.u3":"Салон красоты · SPA · фитнес","con.fcap":"Уличный фасад после реконструкции — эскизный проект",
+"num.eyebrow":"Объект в цифрах","num.title":"Компактный, многофункциональный, самодостаточный","num.s1":"Общая полезная площадь (NLA)","num.s2":"Жилая зона, 2–4 этажи","num.s3":"Коммерция на уровне улицы","num.s4":"Площадь апартаментов (типовой этаж)","num.l4":"2–4 этажи","num.d4":"Апартаменты — 27–32 единицы, часть с высокими потолками после демонтажа промежуточных перекрытий","num.l1":"1 этаж","num.d1":"Три коммерческих помещения с отдельными входами с ул. Арсенала, 3 внутренних двора, лифт","num.l0":"−1 этаж","num.d0":"Технические помещения / кладовые",
+"pl.eyebrow":"Планировка","pl.title":"Поэтажные планы и разрез","pl.t1":"1 этаж · коммерция","pl.t2":"2–4 этажи · апартаменты","pl.t3":"−1 этаж","pl.t4":"Разрез","pl.credit":"Источник: эскизный проект 8 A.M. «Tris Maisi | Three Sacks». Площади ориентировочные и уточняются на стадии строительного проекта.",
+"fin.eyebrow":"Бизнес-план","fin.title":"Инвестиционные показатели","fin.lead":"Полная смета строительных и проектных работ и прогноз выручки от реализации на основе рыночных цен Старой Риги.","fin.k1":"Общие капитализированные затраты","fin.k2":"Валовая выручка от реализации","fin.k3t":"Валовая прибыль","fin.k3":"До налогов и финансирования","fin.k4":"Рентабельность инвестиций","fin.k5":"Внутренняя норма доходности, годовых","fin.k6t":"Цикл","fin.k6":"Месяцев до полной реализации","fin.gdv":"Прогноз выручки","fin.th1":"Сегмент","fin.th4":"Выручка","fin.r1":"Апартаменты (2–4 эт.)","fin.r2":"Коммерция (1 эт.)","fin.r3":"Кладовые (−1 эт.)","fin.capex":"Структура бюджета","fin.c1":"СМР под ключ (2 600 €/м²)","fin.c2":"Проектирование, авторский надзор, юр. сопровождение","fin.note":"Показатели ориентировочные и основаны на допущениях бизнес-плана; не являются инвестиционным предложением.",
+"st.eyebrow":"Стратегии реализации","st.title":"Три пути к стоимости","st.1t":"Поэтапные продажи","st.1p":"Продажа апартаментов и коммерческих площадей конечным покупателям на стадии реконструкции (presale & retail).","st.2t":"Арендный бизнес","st.2p":"Долгосрочная и краткосрочная аренда апарт-отеля и коммерческих помещений единым оператором.","st.2tag":"NOI ~€420 000 / год","st.3t":"Продажа единым лотом","st.3p":"Передача готового арендного бизнеса институциональному инвестору или девелоперскому фонду.","st.3tag":"Институциональный exit",
+"loc.eyebrow":"Локация","loc.title":"В сердце Старой Риги, у Рижского замка","loc.lead":"Улица Арсенала соединяет Замковую площадь с Екабовскими казармами — тихая пешеходная улица между Даугавой, Домской площадью и парком Бастейкалнс.","loc.p1":"Рижский замок · Замковая площадь","loc.p2":"Музей искусства «Рижская биржа»","loc.p3":"Домская площадь","loc.p4":"Набережная Даугавы","loc.p5":"Памятник Свободы",
+"ct.eyebrow":"Контакты","ct.title":"Узнайте о проекте подробнее","ct.lead":"Запросите полный информационный меморандум, архитектурную документацию и финансовую модель или запишитесь на осмотр объекта.","ct.mail":"Написать e-mail","ct.owner":"Владелец земли и здания","ct.reply":"Отвечаем в течение 1 рабочего дня","ft.arch":"Архитектура: 8 A.M. Architects"
+}};
+
+const PLANS={
+ground:{img:"assets/plan-ground.jpg",
+ t:{lv:"1. stāvs — komercija",en:"Ground floor — commercial",ru:"1 этаж — коммерция"},
+ p:{lv:"Trīs komerctelpas ar ieejām no ielas un jauniem iekšpagalmiem aizmugurē.",en:"Three commercial units with street entrances and new rear courtyards.",ru:"Три коммерческих помещения с входами с улицы и новыми дворами."},
+ r:[["0.04","Restorāns / vīna bārs|Restaurant / wine bar|Ресторан / винный бар","78.14"],["0.05","Kopstrāde / birojs|Co-working / office|Коворкинг / офис","79.20"],["0.06","Skaistumkopšana / SPA|Beauty / SPA|Красота / SPA","62.00"],["0.01–03","Ieejas|Entrances|Входы","40.08"],["0.09–12","Iekšpagalmi, lifts|Courtyards, lift|Дворы, лифт","64.13"],["0.07–08","Gaitenis, kāpnes|Hallway, stairs|Коридор, лестница","27.57"]],tot:"351.12"},
+typical:{img:"assets/plan-floor1.jpg",
+ t:{lv:"2.–4. stāvs — dzīvokļi",en:"Floors 2–4 — apartments",ru:"2–4 этажи — апартаменты"},
+ p:{lv:"Tipveida stāvā 9 dzīvokļi (24–39 m²) ar vannas istabām pie gaiteņa un guļamzonu pie logiem.",en:"9 apartments per typical floor (24–39 m²), bathrooms on the corridor side, sleeping zones by the windows.",ru:"9 апартаментов на типовом этаже (24–39 м²), санузлы у коридора, спальные зоны у окон."},
+ r:[["1","Dzīvoklis|Apartment|Апартамент","24.68"],["2","Dzīvoklis|Apartment|Апартамент","38.65"],["3","Dzīvoklis|Apartment|Апартамент","29.71"],["4","Dzīvoklis|Apartment|Апартамент","28.96"],["5","Dzīvoklis|Apartment|Апартамент","33.37"],["6","Dzīvoklis|Apartment|Апартамент","30.41"],["7","Dzīvoklis|Apartment|Апартамент","29.99"],["8","Dzīvoklis|Apartment|Апартамент","32.79"],["9","Dzīvoklis|Apartment|Апартамент","28.83"],["—","Gaiteņi|Hallways|Коридоры","38.79"]],tot:"316.18"},
+basement:{img:"assets/plan-basement.jpg",
+ t:{lv:"−1. stāvs — tehniskās telpas",en:"Basement — technical",ru:"−1 этаж — технические помещения"},
+ p:{lv:"Pagrabs zem rietumu korpusa — inženiertehnika un noliktavas / individuālas glabātavas.",en:"Basement under the western block — building services and storage units.",ru:"Подвал под западным корпусом — инженерия и кладовые."},
+ r:[["-1.01","Tehniskās telpas|Technical premises|Технические помещения","108.66"]],tot:"108.66"},
+section:{img:"assets/section.jpg",
+ t:{lv:"Griezums",en:"Section",ru:"Разрез"},
+ p:{lv:"Ielas līmenī 5.18 m augsti griesti; 3. stāva pārseguma demontāža rada 4.43 m augstu dzīvojamo telpu; jumta stāvā 7.3 m līdz korei.",en:"5.18 m ceilings at street level; removing the 3rd-floor slab creates a 4.43 m high living space; 7.3 m to the ridge in the roof storey.",ru:"Потолки 5,18 м на уровне улицы; демонтаж перекрытия 3-го этажа создаёт жилое пространство высотой 4,43 м; 7,3 м до конька в мансарде."},
+ r:[["","1. stāvs|Floor 1 (street)|1 этаж","5.18 m"],["","2. stāvs|Floor 2|2 этаж","2.10 m"],["","3. stāvs (divlīmeņu)|Floor 3 (double height)|3 этаж (двусветный)","4.43 m"],["","Jumta stāvs|Roof storey|Мансарда","7.30 m"]],tot:null}
+};
+
+let lang='lv',plan='ground';
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+$$('[data-i18n]').forEach(el=>I18N.lv[el.dataset.i18n]=el.textContent);
+const LI={lv:0,en:1,ru:2};
+function renderPlan(){
+  const P=PLANS[plan];$('#planImg').src=P.img;$('#planImg').alt=P.t[lang];
+  $('#planTitle').textContent=P.t[lang];$('#planText').textContent=P.p[lang];
+  const unit=plan==='section'?'':' m²';
+  let h=P.r.map(r=>`<tr><td>${r[0]?r[0]+' · ':''}${r[1].split('|')[LI[lang]]}</td><td>${r[2]}${unit}</td></tr>`).join('');
+  if(P.tot)h+=`<tr class="tot"><td>${['Kopā','Total','Итого'][LI[lang]]}</td><td>${P.tot} m²</td></tr>`;
+  $('#planRooms').innerHTML=h;
+}
+function setLang(l){
+  lang=I18N[l]?l:'lv';document.documentElement.lang=lang;
+  $$('[data-i18n]').forEach(el=>{const v=I18N[lang][el.dataset.i18n]??I18N.lv[el.dataset.i18n];if(v!=null)el.textContent=v});
+  $$('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
+  try{localStorage.setItem('arsenala5_lang',lang)}catch(e){}
+  renderPlan();
+}
+$$('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+$$('.tabs button').forEach(b=>b.onclick=()=>{plan=b.dataset.plan;$$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));renderPlan()});
+let saved='lv';try{saved=localStorage.getItem('arsenala5_lang')||'lv'}catch(e){}
+setLang(saved);
+
+// lightbox
+$('#planImg').onclick=()=>{$('#lb img').src=$('#planImg').src;$('#lb').classList.add('on')};
+$('#lb').onclick=()=>$('#lb').classList.remove('on');
+
+// header
+const hdr=$('#hdr');const onS=()=>hdr.classList.toggle('solid',scrollY>60);addEventListener('scroll',onS,{passive:true});onS();
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+// map
+if(window.L){
+  const pos=[56.95107,24.10304];
+  const map=L.map('map',{scrollWheelZoom:false}).setView(pos,16);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+  const icon=L.divIcon({className:'',iconSize:[38,48],iconAnchor:[19,48],html:'<svg class="pin" viewBox="0 0 38 48"><path d="M19 47C19 47 36 29 36 18A17 17 0 0 0 2 18C2 29 19 47 19 47Z" fill="#8f3a28" stroke="#fff" stroke-width="2"/><text x="19" y="25" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#fff">5</text></svg>'});
+  L.marker(pos,{icon}).addTo(map).bindPopup('<b>Trīs Maisi</b><br>Arsenāla iela 5, Rīga');
+}
+</script>
+</body>
+</html>
