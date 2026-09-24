@@ -45,7 +45,7 @@ priv = (root / "privacy.src.html").read_text(encoding="utf-8").replace("__BASE__
 - Location: 2 min walk to Riga Castle / Castle Square; near Art Museum "Riga Bourse", Dome Square and the Daugava embankment.
 
 ## Contact
-- Contact person: Aleksejs Halavins, +371 29 205 417 (SIA "Arsenāla 5").
+- Contact person: Aleksejs Halavins, +371 29 205 417, info@arsenala5.lv (SIA "Arsenāla 5").
 
 ## Pages
 - [Home]({BASE}): full project overview (LV/EN/RU)
