@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://halavinwww-tech.github.io/Arsenala5/sitemap.xml
