@@ -212,11 +212,15 @@ header.solid .lang button{color:var(--ink-2)}
 /* hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);padding:0 0 80px;overflow:hidden;background:var(--night)}
 .hero-bg{position:absolute;inset:0;background:url("assets/photo-2.jpg") center 30%/cover no-repeat;transform:scale(1.04)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,28,.55) 0%,rgba(8,16,28,.25) 35%,rgba(8,16,28,.88) 100%)}
-.hero .wrap{position:relative;z-index:2;width:100%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,28,.55) 0%,rgba(8,16,28,.4) 35%,rgba(8,16,28,.88) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;text-shadow:0 1px 14px rgba(6,12,22,.65)}
 .hero .eyebrow{color:#d4b46a}
 .hero h1{font-size:clamp(60px,11vw,150px);font-weight:500;letter-spacing:.02em;line-height:.9}
 .hero h1 em{font-style:italic;color:#d4b46a}
+.hero-tag{display:flex;align-items:center;gap:14px;margin-top:22px;font:600 13px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#d4b46a}
+.hero-tag::before{content:"";width:36px;height:1px;background:currentColor;flex:none}
+.hero-addr{margin-top:10px;padding-left:50px;font-size:15px;letter-spacing:.04em;color:rgba(244,242,236,.8)}
+@media(max-width:480px){.hero-tag{font-size:11.5px;letter-spacing:.18em}.hero-addr{padding-left:0;font-size:14px}}
 .hero .sub{font:500 clamp(18px,2.2vw,24px)/1.4 var(--serif);font-style:italic;margin:18px 0 34px;max-width:640px;color:rgba(244,242,236,.9)}
 .hero-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(244,242,236,.25);padding-top:26px;gap:20px;max-width:900px}
 .hero-facts b{display:block;font:500 clamp(28px,3.4vw,40px)/1 var(--serif)}
@@ -405,8 +409,9 @@ footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 <section class="hero" id="top">
   <div class="hero-bg" role="img" aria-label="Arsenāla iela 5 fasāde"></div>
   <div class="wrap">
-    <div class="eyebrow" data-i18n="hero.eyebrow">Arsenāla iela 5 · Vecrīga · UNESCO</div>
     <h1>Trīs <em>Maisi</em></h1>
+    <div class="hero-tag" data-i18n="hero.tag">Vecrīga — UNESCO mantojums</div>
+    <div class="hero-addr" data-i18n="hero.addr">Arsenāla iela 5, Rīga, LV-1050, Latvija</div>
     <p class="sub" data-i18n="hero.sub">18. gadsimta noliktavu komplekss Rīgas vēsturiskajā centrā — gatavs pārtapšanai par 27–32 dzīvokļu un komercplatību namu.</p>
     <div class="hero-cta">
       <a class="cta" href="#contact" data-i18n="hero.cta1">Pieprasīt informāciju</a>
@@ -656,7 +661,7 @@ const I18N={
 lv:{},
 en:{
 "nav.heritage":"Heritage","nav.concept":"Concept","nav.plans":"Plans","nav.finance":"Financials","nav.location":"Location","nav.contact":"Contact",
-"hero.eyebrow":"Arsenāla Street 5 · Riga Old Town · UNESCO","hero.sub":"An 18th-century warehouse complex in the historic heart of Riga — ready to become a building of 27–32 apartments and commercial space.","hero.cta1":"Request information","hero.cta2":"Financials","hero.f1":"Net lettable area","hero.f2":"Apartments","hero.f3":"Gross development value","hero.f4":"IRR per year",
+"hero.tag":"Old Riga — UNESCO World Heritage","hero.addr":"Arsenāla iela 5, Riga, LV-1050, Latvia","hero.sub":"An 18th-century warehouse complex in the historic heart of Riga — ready to become a building of 27–32 apartments and commercial space.","hero.cta1":"Request information","hero.cta2":"Financials","hero.f1":"Net lettable area","hero.f2":"Apartments","hero.f3":"Gross development value","hero.f4":"IRR per year",
 "her.eyebrow":"Historic heritage","her.title":"Three warehouses. One building. Three centuries.","her.lead":"The building at Arsenāla Street 5 grew out of three warehouses — “Burden Carrier”, “Three Brothers” and “Sugar Cooker”. Authentic 18th-century façades, load-bearing structures, beams, columns and historic goods hoists have survived.","her.b1":"Architectural monument of State importance","her.b2":"Historic Centre of Riga — urban monument","her.b3":"UNESCO World Heritage Site","her.b4":"Land plot and building","her.b4v":"Single title",
 "h.n1":"Burden Carrier","h.n2":"Three Brothers","h.n3":"Sugar Cooker",
 "con.eyebrow":"Architectural concept","con.title":"21st-century apartments in an 18th-century space","con.lead":"The street façade and volume remain unchanged — each of the three parts becomes a relatively independent house with its own entrance, a new inner courtyard and stairwell that bring daylight into the apartments.","con.h1":"Western block with the main stair and the largest street-level commercial space.","con.u1":"Restaurant · wine bar · café","con.h2":"Central block with lift and green courtyard, and a restored goods hoist under the roof.","con.u2":"Co-working · office","con.h3":"Eastern block with its own entrance and courtyard, suited for a wellness function.","con.u3":"Beauty · SPA · fitness","con.fcap":"Street façade after reconstruction — sketch design",
@@ -669,7 +674,7 @@ en:{
 },
 ru:{
 "nav.heritage":"Наследие","nav.concept":"Концепция","nav.plans":"Планировка","nav.finance":"Финансы","nav.location":"Локация","nav.contact":"Контакты",
-"hero.eyebrow":"ул. Арсенала, 5 · Старая Рига · ЮНЕСКО","hero.sub":"Складской комплекс XVIII века в историческом центре Риги — готов стать домом на 27–32 апартамента с коммерческими помещениями.","hero.cta1":"Запросить информацию","hero.cta2":"Финансовые показатели","hero.f1":"Полезная площадь","hero.f2":"Апартаменты","hero.f3":"Выручка (GDV)","hero.f4":"IRR годовых",
+"hero.tag":"Старая Рига — наследие ЮНЕСКО","hero.addr":"ул. Арсенала, 5, Рига, LV-1050, Латвия","hero.sub":"Складской комплекс XVIII века в историческом центре Риги — готов стать домом на 27–32 апартамента с коммерческими помещениями.","hero.cta1":"Запросить информацию","hero.cta2":"Финансовые показатели","hero.f1":"Полезная площадь","hero.f2":"Апартаменты","hero.f3":"Выручка (GDV)","hero.f4":"IRR годовых",
 "her.eyebrow":"Историческое наследие","her.title":"Три склада. Один дом. Три столетия.","her.lead":"Здание на ул. Арсенала, 5 исторически сложилось из трёх складов — «Nastu nesējs» (Носильщик), «Trīs brāļi» (Три брата) и «Cukura vārītājs» (Сахаровар). Сохранились аутентичные фасады XVIII века, несущие конструкции, балки, колонны и исторические грузовые подъёмники.","her.b1":"Памятник архитектуры государственного значения","her.b2":"Исторический центр Риги — памятник градостроительства","her.b3":"Объект всемирного наследия ЮНЕСКО","her.b4":"Земельный участок и здание","her.b4v":"Единая собственность",
 "h.n1":"Носильщик","h.n2":"Три брата","h.n3":"Сахаровар",
 "con.eyebrow":"Архитектурная концепция","con.title":"Апартаменты XXI века в пространстве XVIII века","con.lead":"Уличный фасад и объём не меняются — каждая из трёх частей становится относительно самостоятельным домом с отдельным входом, новым внутренним двором и лестничной клеткой, которые приносят в апартаменты дневной свет.","con.h1":"Западный корпус с главной лестницей и самым большим коммерческим помещением на уровне улицы.","con.u1":"Ресторан · винный бар · кафе","con.h2":"Центральный корпус с лифтом и зелёным двором, восстановленным грузовым подъёмником под крышей.","con.u2":"Коворкинг · офис","con.h3":"Восточный корпус с отдельным входом и двором, подходит для wellness-функции.","con.u3":"Салон красоты · SPA · фитнес","con.fcap":"Уличный фасад после реконструкции — эскизный проект",
