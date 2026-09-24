@@ -335,14 +335,30 @@ header.solid .lang button{color:var(--ink-2)}
 @media(max-width:900px){.loc{grid-template-columns:1fr}#map{height:360px}}
 
 /* contact */
-.contact{text-align:center}
-.contact .lead{margin:0 auto}
-.contact .eyebrow{justify-content:center}
-.contact .eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
-.c-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:40px}
-.c-row .cta.ghost{color:var(--cream)}
-.c-meta{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:56px;padding-top:34px;border-top:1px solid rgba(244,242,236,.14);font-size:14px;color:rgba(244,242,236,.7)}
-.c-meta b{display:block;font:500 20px/1.3 var(--serif);color:var(--cream);margin-bottom:4px}
+.contact{position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0 0 0 55%;background:url("assets/photo-3.jpg") center 35%/cover no-repeat;opacity:.18;mask-image:linear-gradient(90deg,transparent,#000 45%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%)}
+.c-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.c-list{list-style:none;margin-top:30px;display:grid;gap:14px}
+.c-list li{display:flex;gap:14px;align-items:flex-start;font-size:16px;color:rgba(244,242,236,.85)}
+.c-list li::before{content:"";flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;border:1px solid var(--gold);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4b46a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat}
+.c-card{background:rgba(244,242,236,.04);border:1px solid rgba(244,242,236,.14);border-top:3px solid var(--gold);padding:38px 36px 34px;backdrop-filter:blur(6px)}
+.c-who{display:flex;align-items:center;gap:18px;padding-bottom:26px;border-bottom:1px solid rgba(244,242,236,.12)}
+.c-ava{flex:none;width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--night);display:grid;place-items:center;font:600 24px/1 var(--serif);letter-spacing:.04em}
+.c-who small{display:block;font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#d4b46a;margin-bottom:8px}
+.c-who b{display:block;font:500 30px/1.1 var(--serif);color:var(--cream)}
+.c-who span{font-size:14px;color:rgba(244,242,236,.6)}
+.c-lines{list-style:none;margin:10px 0 28px}
+.c-lines li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(244,242,236,.08);font-size:15px;color:rgba(244,242,236,.85)}
+.c-lines li:last-child{border-bottom:0}
+.c-lines svg{flex:none;width:20px;height:20px;stroke:#d4b46a;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.c-lines a{text-decoration:none;color:var(--cream)}
+.c-lines a:hover{color:#d4b46a}
+.c-lines .big{font:500 24px/1 var(--serif);letter-spacing:.02em;font-variant-numeric:lining-nums}
+.c-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.c-btns .cta{justify-content:center;padding:15px 14px}
+.c-btns .cta.ghost{color:var(--cream)}
+@media(max-width:900px){.c-grid{grid-template-columns:1fr;gap:44px}.contact::before{inset:0;opacity:.08}}
+@media(max-width:480px){.c-card{padding:28px 20px 24px}.c-btns{grid-template-columns:1fr}}
 footer{background:#0a1422;color:rgba(244,242,236,.5);font-size:13px;padding:26px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
@@ -598,18 +614,32 @@ footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </section>
 
 <section id="contact" class="dark contact">
-  <div class="wrap rv">
-    <div class="eyebrow" data-i18n="ct.eyebrow">Kontakti</div>
-    <h2 data-i18n="ct.title">Iepazīstieties ar projektu tuvāk</h2>
-    <p class="lead" data-i18n="ct.lead">Pieprasiet pilnu informatīvo memorandu, arhitektūras dokumentāciju un finanšu modeli vai piesakiet objekta apskati.</p>
-    <div class="c-row">
-      <a class="cta" id="mailBtn" href="mailto:info@arsenala5.lv?subject=Arsen%C4%81la%205%20%E2%80%94%20Tr%C4%ABs%20Maisi" data-i18n="ct.mail">Rakstīt e-pastu</a>
-      <a class="cta ghost" href="tel:+37129205417">+371 29 205 417</a>
+  <div class="wrap c-grid">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="ct.eyebrow">Kontakti</div>
+      <h2 data-i18n="ct.title">Iepazīstieties ar projektu tuvāk</h2>
+      <p class="lead" data-i18n="ct.lead2">Sazinieties ar mums tieši — sagatavosim visu nepieciešamo lēmuma pieņemšanai.</p>
+      <ul class="c-list">
+        <li data-i18n="ct.i1">Pilns informatīvais memorands</li>
+        <li data-i18n="ct.i2">Arhitektūras dokumentācija un stāvu plāni</li>
+        <li data-i18n="ct.i3">Finanšu modelis un tāmes</li>
+        <li data-i18n="ct.i4">Objekta apskate klātienē</li>
+      </ul>
     </div>
-    <div class="c-meta">
-      <div><b>Aleksejs Halavins</b><span data-i18n="ct.person">Kontaktpersona</span> · SIA «Arsenāla 5»</div>
-      <div><b>Arsenāla iela 5</b>Rīga, LV-1050</div>
-      <div><b>info@arsenala5.lv</b></div>
+    <div class="c-card rv">
+      <div class="c-who">
+        <div class="c-ava" aria-hidden="true">AH</div>
+        <div><small data-i18n="ct.person">Kontaktpersona</small><b>Aleksejs Halavins</b><span>SIA «Arsenāla 5»</span></div>
+      </div>
+      <ul class="c-lines">
+        <li><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a class="big" href="tel:+37129205417">+371 29 205 417</a></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Arsenāla iela 5, Rīga, LV-1050</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><span data-i18n="ct.lang">Sazināmies latviski, angliski un krieviski</span></li>
+      </ul>
+      <div class="c-btns">
+        <a class="cta" href="tel:+37129205417" data-i18n="ct.call">Zvanīt</a>
+        <a class="cta ghost" href="https://wa.me/37129205417" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -638,7 +668,7 @@ en:{
 "fin.eyebrow":"Business plan","fin.title":"Investment metrics","fin.lead":"Full construction and design budget estimate and projected sales value based on Riga Old Town market prices.","fin.k1":"Total capitalised costs","fin.k2":"Gross development value","fin.k3t":"Gross profit","fin.k3":"Before taxes and financing","fin.k4":"Return on investment","fin.k5":"Internal rate of return p.a.","fin.k6t":"Cycle","fin.k6":"Months to full realisation","fin.gdv":"Sales value forecast","fin.th1":"Segment","fin.th4":"Revenue","fin.r1":"Apartments (floors 2–4)","fin.r2":"Commercial (ground)","fin.r3":"Storage (basement)","fin.capex":"Budget structure","fin.c1":"Turnkey construction (€2,600/m²)","fin.c2":"Design, author supervision, legal","fin.note":"Figures are indicative and based on business-plan assumptions; this is not an investment offer.",
 "st.eyebrow":"Exit strategies","st.title":"Three routes to value","st.1t":"Phased sales","st.1p":"Sale of apartments and commercial units to end buyers during reconstruction (presale & retail).","st.2t":"Rental business","st.2p":"Long- and short-term letting of an aparthotel and commercial units through a single operator.","st.2tag":"NOI ~€420,000 / year","st.3t":"Single-lot sale","st.3p":"Transfer of the stabilised rental business to an institutional investor or development fund.","st.3tag":"Institutional exit",
 "loc.eyebrow":"Location","loc.title":"In the heart of Old Riga, by Riga Castle","loc.lead":"Arsenāla Street links Castle Square with the Jacob’s Barracks — a quiet, walkable street between the Daugava, Dome Square and Bastejkalns park.","loc.p1":"Riga Castle · Castle Square","loc.p2":"Art Museum “Riga Bourse”","loc.p3":"Dome Square","loc.p4":"Daugava embankment","loc.p5":"Freedom Monument",
-"ct.eyebrow":"Contact","ct.title":"Discover the project in detail","ct.lead":"Request the full information memorandum, architectural documentation and financial model, or book a site visit.","ct.mail":"Send an e-mail","ct.person":"Contact person","faq.eyebrow":"FAQ","faq.title":"The property in brief","faq.q1":"What is “Trīs Maisi” at Arsenāla Street 5?","faq.a1":"An 18th-century warehouse complex in Riga Old Town, historically formed from three warehouses — “Burden Carrier”, “Three Brothers” and “Sugar Cooker”. The building is a State architectural monument No. 6578 within the UNESCO World Heritage Site “Historic Centre of Riga”.","faq.q2":"How large is the building and what is planned?","faq.a2":"Total net lettable area is ~1,850 m²: 1,390 m² residential (27–32 apartments on floors 2–4), 351 m² of ground-floor commercial space and 108 m² of basement technical/storage premises.","faq.q3":"What are the project’s financial metrics?","faq.a3":"The business plan assumes CAPEX of €5.05M, gross development value (GDV) of €8.32M, gross profit of ~€3.27M, ROI of 64.7% and IRR of 24.5% p.a. over a 24–30 month cycle. In the rental scenario NOI is ~€420,000 per year. Figures are indicative.","faq.q4":"Where exactly is the property?","faq.a4":"Arsenāla iela 5, Riga, LV-1050 — in Old Riga, a 2-minute walk from Riga Castle and Castle Square, next to the Art Museum “Riga Bourse” and the Daugava embankment.","faq.q5":"How can I get more information or arrange a viewing?","faq.a5":"Contact Aleksejs Halavins, tel. +371 29 205 417 (SIA “Arsenāla 5”).","ft.privacy":"Privacy policy"
+"ct.eyebrow":"Contact","ct.title":"Discover the project in detail","ct.lead":"Request the full information memorandum, architectural documentation and financial model, or book a site visit.","ct.mail":"Send an e-mail","ct.person":"Contact person","ct.lead2":"Get in touch directly — we will prepare everything you need to make a decision.","ct.i1":"Full information memorandum","ct.i2":"Architectural documentation and floor plans","ct.i3":"Financial model and cost estimates","ct.i4":"On-site viewing","ct.lang":"We speak Latvian, English and Russian","ct.call":"Call","faq.eyebrow":"FAQ","faq.title":"The property in brief","faq.q1":"What is “Trīs Maisi” at Arsenāla Street 5?","faq.a1":"An 18th-century warehouse complex in Riga Old Town, historically formed from three warehouses — “Burden Carrier”, “Three Brothers” and “Sugar Cooker”. The building is a State architectural monument No. 6578 within the UNESCO World Heritage Site “Historic Centre of Riga”.","faq.q2":"How large is the building and what is planned?","faq.a2":"Total net lettable area is ~1,850 m²: 1,390 m² residential (27–32 apartments on floors 2–4), 351 m² of ground-floor commercial space and 108 m² of basement technical/storage premises.","faq.q3":"What are the project’s financial metrics?","faq.a3":"The business plan assumes CAPEX of €5.05M, gross development value (GDV) of €8.32M, gross profit of ~€3.27M, ROI of 64.7% and IRR of 24.5% p.a. over a 24–30 month cycle. In the rental scenario NOI is ~€420,000 per year. Figures are indicative.","faq.q4":"Where exactly is the property?","faq.a4":"Arsenāla iela 5, Riga, LV-1050 — in Old Riga, a 2-minute walk from Riga Castle and Castle Square, next to the Art Museum “Riga Bourse” and the Daugava embankment.","faq.q5":"How can I get more information or arrange a viewing?","faq.a5":"Contact Aleksejs Halavins, tel. +371 29 205 417 (SIA “Arsenāla 5”).","ft.privacy":"Privacy policy"
 },
 ru:{
 "nav.heritage":"Наследие","nav.concept":"Концепция","nav.plans":"Планировка","nav.finance":"Финансы","nav.location":"Локация","nav.contact":"Контакты",
@@ -651,7 +681,7 @@ ru:{
 "fin.eyebrow":"Бизнес-план","fin.title":"Инвестиционные показатели","fin.lead":"Полная смета строительных и проектных работ и прогноз выручки от реализации на основе рыночных цен Старой Риги.","fin.k1":"Общие капитализированные затраты","fin.k2":"Валовая выручка от реализации","fin.k3t":"Валовая прибыль","fin.k3":"До налогов и финансирования","fin.k4":"Рентабельность инвестиций","fin.k5":"Внутренняя норма доходности, годовых","fin.k6t":"Цикл","fin.k6":"Месяцев до полной реализации","fin.gdv":"Прогноз выручки","fin.th1":"Сегмент","fin.th4":"Выручка","fin.r1":"Апартаменты (2–4 эт.)","fin.r2":"Коммерция (1 эт.)","fin.r3":"Кладовые (−1 эт.)","fin.capex":"Структура бюджета","fin.c1":"СМР под ключ (2 600 €/м²)","fin.c2":"Проектирование, авторский надзор, юр. сопровождение","fin.note":"Показатели ориентировочные и основаны на допущениях бизнес-плана; не являются инвестиционным предложением.",
 "st.eyebrow":"Стратегии реализации","st.title":"Три пути к стоимости","st.1t":"Поэтапные продажи","st.1p":"Продажа апартаментов и коммерческих площадей конечным покупателям на стадии реконструкции (presale & retail).","st.2t":"Арендный бизнес","st.2p":"Долгосрочная и краткосрочная аренда апарт-отеля и коммерческих помещений единым оператором.","st.2tag":"NOI ~€420 000 / год","st.3t":"Продажа единым лотом","st.3p":"Передача готового арендного бизнеса институциональному инвестору или девелоперскому фонду.","st.3tag":"Институциональный exit",
 "loc.eyebrow":"Локация","loc.title":"В сердце Старой Риги, у Рижского замка","loc.lead":"Улица Арсенала соединяет Замковую площадь с Екабовскими казармами — тихая пешеходная улица между Даугавой, Домской площадью и парком Бастейкалнс.","loc.p1":"Рижский замок · Замковая площадь","loc.p2":"Музей искусства «Рижская биржа»","loc.p3":"Домская площадь","loc.p4":"Набережная Даугавы","loc.p5":"Памятник Свободы",
-"ct.eyebrow":"Контакты","ct.title":"Узнайте о проекте подробнее","ct.lead":"Запросите полный информационный меморандум, архитектурную документацию и финансовую модель или запишитесь на осмотр объекта.","ct.mail":"Написать e-mail","ct.person":"Контактное лицо","faq.eyebrow":"Частые вопросы","faq.title":"Коротко об объекте","faq.q1":"Что такое «Trīs Maisi» на ул. Арсенала, 5?","faq.a1":"Складской комплекс XVIII века в Старой Риге, исторически сложившийся из трёх складов — «Носильщик», «Три брата» и «Сахаровар». Здание — памятник архитектуры государственного значения № 6578 на территории объекта всемирного наследия ЮНЕСКО «Исторический центр Риги».","faq.q2":"Какова площадь здания и что планируется?","faq.a2":"Общая полезная площадь ~1 850 м²: 1 390 м² жилой зоны (27–32 апартамента на 2–4 этажах), 351 м² коммерческих помещений на 1 этаже и 108 м² технических помещений/кладовых в подвале.","faq.q3":"Каковы финансовые показатели проекта?","faq.a3":"Бизнес-план предусматривает CAPEX €5,05 млн, валовую выручку (GDV) €8,32 млн, валовую прибыль ~€3,27 млн, ROI 64,7% и IRR 24,5% годовых при цикле 24–30 месяцев. В арендном сценарии NOI ~€420 000 в год. Показатели ориентировочные.","faq.q4":"Где именно находится объект?","faq.a4":"ул. Арсенала, 5, Рига, LV-1050 — Старая Рига, 2 минуты пешком до Рижского замка и Замковой площади, рядом с музеем «Рижская биржа» и набережной Даугавы.","faq.q5":"Как получить больше информации или записаться на осмотр?","faq.a5":"Свяжитесь с контактным лицом Алексеем Халавиным, тел. +371 29 205 417 (SIA «Arsenāla 5»).","ft.privacy":"Политика конфиденциальности"
+"ct.eyebrow":"Контакты","ct.title":"Узнайте о проекте подробнее","ct.lead":"Запросите полный информационный меморандум, архитектурную документацию и финансовую модель или запишитесь на осмотр объекта.","ct.mail":"Написать e-mail","ct.person":"Контактное лицо","ct.lead2":"Свяжитесь с нами напрямую — подготовим всё необходимое для принятия решения.","ct.i1":"Полный информационный меморандум","ct.i2":"Архитектурная документация и поэтажные планы","ct.i3":"Финансовая модель и сметы","ct.i4":"Осмотр объекта на месте","ct.lang":"Общаемся на латышском, английском и русском","ct.call":"Позвонить","faq.eyebrow":"Частые вопросы","faq.title":"Коротко об объекте","faq.q1":"Что такое «Trīs Maisi» на ул. Арсенала, 5?","faq.a1":"Складской комплекс XVIII века в Старой Риге, исторически сложившийся из трёх складов — «Носильщик», «Три брата» и «Сахаровар». Здание — памятник архитектуры государственного значения № 6578 на территории объекта всемирного наследия ЮНЕСКО «Исторический центр Риги».","faq.q2":"Какова площадь здания и что планируется?","faq.a2":"Общая полезная площадь ~1 850 м²: 1 390 м² жилой зоны (27–32 апартамента на 2–4 этажах), 351 м² коммерческих помещений на 1 этаже и 108 м² технических помещений/кладовых в подвале.","faq.q3":"Каковы финансовые показатели проекта?","faq.a3":"Бизнес-план предусматривает CAPEX €5,05 млн, валовую выручку (GDV) €8,32 млн, валовую прибыль ~€3,27 млн, ROI 64,7% и IRR 24,5% годовых при цикле 24–30 месяцев. В арендном сценарии NOI ~€420 000 в год. Показатели ориентировочные.","faq.q4":"Где именно находится объект?","faq.a4":"ул. Арсенала, 5, Рига, LV-1050 — Старая Рига, 2 минуты пешком до Рижского замка и Замковой площади, рядом с музеем «Рижская биржа» и набережной Даугавы.","faq.q5":"Как получить больше информации или записаться на осмотр?","faq.a5":"Свяжитесь с контактным лицом Алексеем Халавиным, тел. +371 29 205 417 (SIA «Arsenāla 5»).","ft.privacy":"Политика конфиденциальности"
 }};
 
 const PLANS={

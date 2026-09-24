@@ -25,4 +25,4 @@ Vizītkartes lapa vēsturiskajam noliktavu kompleksam Arsenāla ielā 5 (Vecrīg
 - Redzama BUJ sadaļa (LV/EN/RU), `llms.txt` ar faktiem AI meklētājiem, `sitemap.xml`, `robots.txt`.
 
 ## Aizvietojamie dati
-- E-pasts `info@arsenala5.lv` — placeholder.
+- E-pasts pagaidām nav norādīts (tiks pievienots, kad būs īstais).
