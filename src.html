@@ -211,7 +211,7 @@ header.solid .lang button{color:var(--ink-2)}
 
 /* hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);padding:0 0 80px;overflow:hidden;background:var(--night)}
-.hero-bg{position:absolute;inset:0;background:url("assets/photo-2.jpg") center 30%/cover no-repeat;transform:scale(1.04)}
+.hero-bg{position:absolute;inset:0;background:url("assets/hero.jpg") center 40%/cover no-repeat;transform:scale(1.04)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,28,.55) 0%,rgba(8,16,28,.4) 35%,rgba(8,16,28,.88) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;text-shadow:0 1px 14px rgba(6,12,22,.65)}
 .hero .eyebrow{color:#d4b46a}
@@ -242,6 +242,20 @@ header.solid .lang button{color:var(--ink-2)}
 .badges div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px}
 .badges b{font-weight:600;text-align:right}
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:48px}}
+
+
+/* gallery */
+.g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+.g-grid figure{position:relative;overflow:hidden;cursor:zoom-in;background:var(--night)}
+.g-grid .g-wide{grid-column:span 2}
+.g-grid img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .8s ease}
+.g-grid .g-wide img{aspect-ratio:auto}
+.g-grid .g-full{grid-column:1/-1}
+.g-grid .g-full img{aspect-ratio:21/8;object-position:center 60%}
+.g-grid figure:hover img{transform:scale(1.04)}
+.g-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;background:linear-gradient(transparent,rgba(6,12,22,.78));color:var(--cream);font:500 italic 18px/1.2 var(--serif)}
+@media(max-width:800px){.g-grid{grid-template-columns:1fr 1fr}.g-grid .g-wide{grid-column:span 2}.g-grid figure:nth-child(5){grid-column:span 2}}
+@media(max-width:520px){.g-grid{grid-template-columns:1fr}.g-grid .g-wide,.g-grid figure:nth-child(5){grid-column:auto}.g-grid .g-full img{aspect-ratio:3/2}.g-grid .g-wide img{aspect-ratio:3/2}}
 
 /* three houses */
 .dark{background:var(--night);color:var(--cream)}
@@ -341,7 +355,7 @@ header.solid .lang button{color:var(--ink-2)}
 
 /* contact */
 .contact{position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;inset:0 0 0 55%;background:url("assets/photo-3.jpg") center 35%/cover no-repeat;opacity:.18;mask-image:linear-gradient(90deg,transparent,#000 45%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%)}
+.contact::before{content:"";position:absolute;inset:0 0 0 55%;background:url("assets/street-2.jpg") center 35%/cover no-repeat;opacity:.18;mask-image:linear-gradient(90deg,transparent,#000 45%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%)}
 .c-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
 .c-list{list-style:none;margin-top:30px;display:grid;gap:14px}
 .c-list li{display:flex;gap:14px;align-items:flex-start;font-size:16px;color:rgba(244,242,236,.85)}
@@ -395,6 +409,7 @@ footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
     <ul class="links">
       <li><a href="#location" data-i18n="nav.location">Atrašanās vieta</a></li>
       <li><a href="#heritage" data-i18n="nav.heritage">Mantojums</a></li>
+      <li><a href="#gallery" data-i18n="nav.gallery">Galerija</a></li>
       <li><a href="#concept" data-i18n="nav.concept">Koncepcija</a></li>
       <li><a href="#plans" data-i18n="nav.plans">Plānojums</a></li>
       <li><a href="#finance" data-i18n="nav.finance">Finanses</a></li>
@@ -458,9 +473,27 @@ footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
       </div>
     </div>
     <div class="photos rv">
-      <figure><img src="assets/photo-3.jpg" alt="Nastu nesējs" loading="lazy"><figcaption data-i18n="h.n1">Nastu nesējs</figcaption></figure>
-      <figure><img src="assets/photo-2.jpg" alt="Trīs brāļi" loading="lazy"><figcaption data-i18n="h.n2">Trīs brāļi</figcaption></figure>
-      <figure><img src="assets/photo-1.jpg" alt="Cukura vārītājs" loading="lazy"><figcaption data-i18n="h.n3">Cukura vārītājs</figcaption></figure>
+      <figure><img src="assets/street-1.jpg" alt="Arsenāla iela" loading="lazy"><figcaption data-i18n="her.c1">Arsenāla iela</figcaption></figure>
+      <figure><img src="assets/gate.jpg" alt="Vēsturiskie vārti" loading="lazy"><figcaption data-i18n="her.c2">Vēsturiskie vārti</figcaption></figure>
+      <figure><img src="assets/street-2.jpg" alt="Fasāde gar Arsenāla ielu" loading="lazy"><figcaption data-i18n="her.c3">18. gs. fasāde</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="plans">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="gal.eyebrow">Galerija</div>
+      <h2 data-i18n="gal.title">Autentiska vide, kas saglabājusies trīs gadsimtus</h2>
+      <p class="lead" data-i18n="gal.lead">Masīvas koka sijas un kolonnas, vēsturiskais preču pacēlāja rats zem jumta un skati uz Rīgas pili un Vecrīgas jumtiem.</p>
+    </div>
+    <div class="g-grid rv">
+      <figure class="g-wide"><img src="assets/int-attic.jpg" alt="" loading="lazy"><figcaption data-i18n="gal.c1">Bēniņu koka konstrukcijas</figcaption></figure>
+      <figure><img src="assets/int-hoist.jpg" alt="" loading="lazy"><figcaption data-i18n="gal.c2">Vēsturiskais pacēlāja rats</figcaption></figure>
+      <figure><img src="assets/view-castle.jpg" alt="" loading="lazy"><figcaption data-i18n="gal.c3">Skats uz Rīgas pili</figcaption></figure>
+      <figure><img src="assets/int-hall.jpg" alt="" loading="lazy"><figcaption data-i18n="gal.c4">Noliktavas stāvs ar sijām</figcaption></figure>
+      <figure><img src="assets/int-door.jpg" alt="" loading="lazy"><figcaption data-i18n="gal.c5">Pacēlāja durvis uz ielu</figcaption></figure>
+      <figure class="g-full"><img src="assets/view-roofs.jpg" alt="" loading="lazy"><figcaption data-i18n="gal.c6">Vecrīgas jumti</figcaption></figure>
     </div>
   </div>
 </section>
@@ -509,6 +542,10 @@ footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
       <h2 data-i18n="num.title">Kompakts, daudzfunkcionāls, pašpietiekams</h2>
     </div>
     <div class="stats rv">
+      <div class="stat"><b class="num">2 500<small>m²</small></b><span data-i18n="num.s5">Ēkas kopējā platība</span></div>
+      <div class="stat"><b class="num">459<small>m²</small></b><span data-i18n="num.s6">Zemes gabals</span></div>
+      <div class="stat"><b class="num">5</b><span data-i18n="num.s7">Stāvi (ieskaitot pagrabu un bēniņus)</span></div>
+      <div class="stat"><b class="num">3</b><span data-i18n="num.s8">Vēsturiskās noliktavas vienā ēkā</span></div>
       <div class="stat"><b class="num">1 850<small>m²</small></b><span data-i18n="num.s1">Kopējā lietderīgā platība (NLA)</span></div>
       <div class="stat"><b class="num">1 390<small>m²</small></b><span data-i18n="num.s2">Dzīvojamā zona, 2.–4. stāvs</span></div>
       <div class="stat"><b class="num">351<small>m²</small></b><span data-i18n="num.s3">Komercplatības ielas līmenī</span></div>
@@ -660,12 +697,12 @@ footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 const I18N={
 lv:{},
 en:{
-"nav.heritage":"Heritage","nav.concept":"Concept","nav.plans":"Plans","nav.finance":"Financials","nav.location":"Location","nav.contact":"Contact",
+"nav.heritage":"Heritage","nav.gallery":"Gallery","nav.concept":"Concept","nav.plans":"Plans","nav.finance":"Financials","nav.location":"Location","nav.contact":"Contact",
 "hero.tag":"Old Riga — UNESCO World Heritage","hero.addr":"Arsenāla iela 5, Riga, LV-1050, Latvia","hero.sub":"An 18th-century warehouse complex in the historic heart of Riga — ready to become a building of 27–32 apartments and commercial space.","hero.cta1":"Request information","hero.cta2":"Financials","hero.f1":"Net lettable area","hero.f2":"Apartments","hero.f3":"Gross development value","hero.f4":"IRR per year",
 "her.eyebrow":"Historic heritage","her.title":"Three warehouses. One building. Three centuries.","her.lead":"The building at Arsenāla Street 5 grew out of three warehouses — “Burden Carrier”, “Three Brothers” and “Sugar Cooker”. Authentic 18th-century façades, load-bearing structures, beams, columns and historic goods hoists have survived.","her.b1":"Architectural monument of State importance","her.b2":"Historic Centre of Riga — urban monument","her.b3":"UNESCO World Heritage Site","her.b4":"Land plot and building","her.b4v":"Single title",
 "h.n1":"Burden Carrier","h.n2":"Three Brothers","h.n3":"Sugar Cooker",
 "con.eyebrow":"Architectural concept","con.title":"21st-century apartments in an 18th-century space","con.lead":"The street façade and volume remain unchanged — each of the three parts becomes a relatively independent house with its own entrance, a new inner courtyard and stairwell that bring daylight into the apartments.","con.h1":"Western block with the main stair and the largest street-level commercial space.","con.u1":"Restaurant · wine bar · café","con.h2":"Central block with lift and green courtyard, and a restored goods hoist under the roof.","con.u2":"Co-working · office","con.h3":"Eastern block with its own entrance and courtyard, suited for a wellness function.","con.u3":"Beauty · SPA · fitness","con.fcap":"Street façade after reconstruction — sketch design",
-"num.eyebrow":"Key figures","num.title":"Compact, mixed-use, self-contained","num.s1":"Total net lettable area (NLA)","num.s2":"Residential, floors 2–4","num.s3":"Street-level commercial","num.s4":"Apartment size (typical floor)","num.l4":"Floors 2–4","num.d4":"Apartments — 27–32 units, some with double-height ceilings after removal of intermediate slabs","num.l1":"Ground floor","num.d1":"Three commercial units with separate entrances from Arsenāla Street, 3 courtyards, lift","num.l0":"Basement","num.d0":"Technical premises / storage",
+"her.c1":"Arsenāla Street","her.c2":"Historic gates","her.c3":"18th-century façade","num.s5":"Total building area","num.s6":"Land plot","num.s7":"Floors (incl. basement and attic)","num.s8":"Historic warehouses in one building","gal.eyebrow":"Gallery","gal.title":"An authentic setting preserved for three centuries","gal.lead":"Massive timber beams and columns, the historic goods-hoist wheel under the roof, and views of Riga Castle and the rooftops of Old Riga.","gal.c1":"Timber roof structure","gal.c2":"Historic hoist wheel","gal.c3":"View of Riga Castle","gal.c4":"Warehouse floor with beams","gal.c5":"Hoist doors to the street","gal.c6":"Rooftops of Old Riga","num.eyebrow":"Key figures","num.title":"Compact, mixed-use, self-contained","num.s1":"Total net lettable area (NLA)","num.s2":"Residential, floors 2–4","num.s3":"Street-level commercial","num.s4":"Apartment size (typical floor)","num.l4":"Floors 2–4","num.d4":"Apartments — 27–32 units, some with double-height ceilings after removal of intermediate slabs","num.l1":"Ground floor","num.d1":"Three commercial units with separate entrances from Arsenāla Street, 3 courtyards, lift","num.l0":"Basement","num.d0":"Technical premises / storage",
 "pl.eyebrow":"Layout","pl.title":"Floor plans and section","pl.t1":"Ground · commercial","pl.t2":"Floors 2–4 · apartments","pl.t3":"Basement","pl.t4":"Section","pl.credit":"Source: sketch design “Tris Maisi | Three Sacks”. Areas are indicative and subject to the construction design stage.",
 "fin.eyebrow":"Business plan","fin.title":"Investment metrics","fin.lead":"Full construction and design budget estimate and projected sales value based on Riga Old Town market prices.","fin.k1":"Total capitalised costs","fin.k2":"Gross development value","fin.k3t":"Gross profit","fin.k3":"Before taxes and financing","fin.k4":"Return on investment","fin.k5":"Internal rate of return p.a.","fin.k6t":"Cycle","fin.k6":"Months to full realisation","fin.gdv":"Sales value forecast","fin.th1":"Segment","fin.th4":"Revenue","fin.r1":"Apartments (floors 2–4)","fin.r2":"Commercial (ground)","fin.r3":"Storage (basement)","fin.capex":"Budget structure","fin.c1":"Turnkey construction (€2,600/m²)","fin.c2":"Design, author supervision, legal","fin.note":"Figures are indicative and based on business-plan assumptions; this is not an investment offer.",
 "st.eyebrow":"Exit strategies","st.title":"Three routes to value","st.1t":"Phased sales","st.1p":"Sale of apartments and commercial units to end buyers during reconstruction (presale & retail).","st.2t":"Rental business","st.2p":"Long- and short-term letting of an aparthotel and commercial units through a single operator.","st.2tag":"NOI ~€420,000 / year","st.3t":"Single-lot sale","st.3p":"Transfer of the stabilised rental business to an institutional investor or development fund.","st.3tag":"Institutional exit",
@@ -673,12 +710,12 @@ en:{
 "ct.eyebrow":"Contact","ct.title":"Discover the project in detail","ct.lead":"Request the full information memorandum, architectural documentation and financial model, or book a site visit.","ct.mail":"Send an e-mail","ct.person":"Contact person","ct.lead2":"Get in touch directly — we will prepare everything you need to make a decision.","ct.i1":"Full information memorandum","ct.i2":"Architectural documentation and floor plans","ct.i3":"Financial model and cost estimates","ct.i4":"On-site viewing","ct.lang":"We speak Latvian, English and Russian","ct.call":"Call","faq.eyebrow":"FAQ","faq.title":"The property in brief","faq.q1":"What is “Trīs Maisi” at Arsenāla Street 5?","faq.a1":"An 18th-century warehouse complex in Riga Old Town, historically formed from three warehouses — “Burden Carrier”, “Three Brothers” and “Sugar Cooker”. The building is a State architectural monument No. 6578 within the UNESCO World Heritage Site “Historic Centre of Riga”.","faq.q2":"How large is the building and what is planned?","faq.a2":"Total net lettable area is ~1,850 m²: 1,390 m² residential (27–32 apartments on floors 2–4), 351 m² of ground-floor commercial space and 108 m² of basement technical/storage premises.","faq.q3":"What are the project’s financial metrics?","faq.a3":"The business plan assumes CAPEX of €5.05M, gross development value (GDV) of €8.32M, gross profit of ~€3.27M, ROI of 64.7% and IRR of 24.5% p.a. over a 24–30 month cycle. In the rental scenario NOI is ~€420,000 per year. Figures are indicative.","faq.q4":"Where exactly is the property?","faq.a4":"Arsenāla iela 5, Riga, LV-1050 — in Old Riga, a 2-minute walk from Riga Castle and Castle Square, next to the Art Museum “Riga Bourse” and the Daugava embankment.","faq.q5":"How can I get more information or arrange a viewing?","faq.a5":"Contact Aleksejs Halavins, tel. +371 29 205 417 (SIA “Arsenāla 5”).","ft.privacy":"Privacy policy"
 },
 ru:{
-"nav.heritage":"Наследие","nav.concept":"Концепция","nav.plans":"Планировка","nav.finance":"Финансы","nav.location":"Локация","nav.contact":"Контакты",
+"nav.heritage":"Наследие","nav.gallery":"Галерея","nav.concept":"Концепция","nav.plans":"Планировка","nav.finance":"Финансы","nav.location":"Локация","nav.contact":"Контакты",
 "hero.tag":"Старая Рига — наследие ЮНЕСКО","hero.addr":"ул. Арсенала, 5, Рига, LV-1050, Латвия","hero.sub":"Складской комплекс XVIII века в историческом центре Риги — готов стать домом на 27–32 апартамента с коммерческими помещениями.","hero.cta1":"Запросить информацию","hero.cta2":"Финансовые показатели","hero.f1":"Полезная площадь","hero.f2":"Апартаменты","hero.f3":"Выручка (GDV)","hero.f4":"IRR годовых",
 "her.eyebrow":"Историческое наследие","her.title":"Три склада. Один дом. Три столетия.","her.lead":"Здание на ул. Арсенала, 5 исторически сложилось из трёх складов — «Nastu nesējs» (Носильщик), «Trīs brāļi» (Три брата) и «Cukura vārītājs» (Сахаровар). Сохранились аутентичные фасады XVIII века, несущие конструкции, балки, колонны и исторические грузовые подъёмники.","her.b1":"Памятник архитектуры государственного значения","her.b2":"Исторический центр Риги — памятник градостроительства","her.b3":"Объект всемирного наследия ЮНЕСКО","her.b4":"Земельный участок и здание","her.b4v":"Единая собственность",
 "h.n1":"Носильщик","h.n2":"Три брата","h.n3":"Сахаровар",
 "con.eyebrow":"Архитектурная концепция","con.title":"Апартаменты XXI века в пространстве XVIII века","con.lead":"Уличный фасад и объём не меняются — каждая из трёх частей становится относительно самостоятельным домом с отдельным входом, новым внутренним двором и лестничной клеткой, которые приносят в апартаменты дневной свет.","con.h1":"Западный корпус с главной лестницей и самым большим коммерческим помещением на уровне улицы.","con.u1":"Ресторан · винный бар · кафе","con.h2":"Центральный корпус с лифтом и зелёным двором, восстановленным грузовым подъёмником под крышей.","con.u2":"Коворкинг · офис","con.h3":"Восточный корпус с отдельным входом и двором, подходит для wellness-функции.","con.u3":"Салон красоты · SPA · фитнес","con.fcap":"Уличный фасад после реконструкции — эскизный проект",
-"num.eyebrow":"Объект в цифрах","num.title":"Компактный, многофункциональный, самодостаточный","num.s1":"Общая полезная площадь (NLA)","num.s2":"Жилая зона, 2–4 этажи","num.s3":"Коммерция на уровне улицы","num.s4":"Площадь апартаментов (типовой этаж)","num.l4":"2–4 этажи","num.d4":"Апартаменты — 27–32 единицы, часть с высокими потолками после демонтажа промежуточных перекрытий","num.l1":"1 этаж","num.d1":"Три коммерческих помещения с отдельными входами с ул. Арсенала, 3 внутренних двора, лифт","num.l0":"−1 этаж","num.d0":"Технические помещения / кладовые",
+"her.c1":"Улица Арсенала","her.c2":"Исторические ворота","her.c3":"Фасад XVIII века","num.s5":"Общая площадь здания","num.s6":"Земельный участок","num.s7":"Этажей (включая подвал и чердак)","num.s8":"Исторических склада в одном здании","gal.eyebrow":"Галерея","gal.title":"Аутентичная среда, сохранившаяся три столетия","gal.lead":"Массивные деревянные балки и колонны, историческое колесо грузового подъёмника под крышей и виды на Рижский замок и крыши Старой Риги.","gal.c1":"Деревянные конструкции чердака","gal.c2":"Историческое колесо подъёмника","gal.c3":"Вид на Рижский замок","gal.c4":"Складской этаж с балками","gal.c5":"Двери подъёмника на улицу","gal.c6":"Крыши Старой Риги","num.eyebrow":"Объект в цифрах","num.title":"Компактный, многофункциональный, самодостаточный","num.s1":"Общая полезная площадь (NLA)","num.s2":"Жилая зона, 2–4 этажи","num.s3":"Коммерция на уровне улицы","num.s4":"Площадь апартаментов (типовой этаж)","num.l4":"2–4 этажи","num.d4":"Апартаменты — 27–32 единицы, часть с высокими потолками после демонтажа промежуточных перекрытий","num.l1":"1 этаж","num.d1":"Три коммерческих помещения с отдельными входами с ул. Арсенала, 3 внутренних двора, лифт","num.l0":"−1 этаж","num.d0":"Технические помещения / кладовые",
 "pl.eyebrow":"Планировка","pl.title":"Поэтажные планы и разрез","pl.t1":"1 этаж · коммерция","pl.t2":"2–4 этажи · апартаменты","pl.t3":"−1 этаж","pl.t4":"Разрез","pl.credit":"Источник: эскизный проект «Tris Maisi | Three Sacks». Площади ориентировочные и уточняются на стадии строительного проекта.",
 "fin.eyebrow":"Бизнес-план","fin.title":"Инвестиционные показатели","fin.lead":"Полная смета строительных и проектных работ и прогноз выручки от реализации на основе рыночных цен Старой Риги.","fin.k1":"Общие капитализированные затраты","fin.k2":"Валовая выручка от реализации","fin.k3t":"Валовая прибыль","fin.k3":"До налогов и финансирования","fin.k4":"Рентабельность инвестиций","fin.k5":"Внутренняя норма доходности, годовых","fin.k6t":"Цикл","fin.k6":"Месяцев до полной реализации","fin.gdv":"Прогноз выручки","fin.th1":"Сегмент","fin.th4":"Выручка","fin.r1":"Апартаменты (2–4 эт.)","fin.r2":"Коммерция (1 эт.)","fin.r3":"Кладовые (−1 эт.)","fin.capex":"Структура бюджета","fin.c1":"СМР под ключ (2 600 €/м²)","fin.c2":"Проектирование, авторский надзор, юр. сопровождение","fin.note":"Показатели ориентировочные и основаны на допущениях бизнес-плана; не являются инвестиционным предложением.",
 "st.eyebrow":"Стратегии реализации","st.title":"Три пути к стоимости","st.1t":"Поэтапные продажи","st.1p":"Продажа апартаментов и коммерческих площадей конечным покупателям на стадии реконструкции (presale & retail).","st.2t":"Арендный бизнес","st.2p":"Долгосрочная и краткосрочная аренда апарт-отеля и коммерческих помещений единым оператором.","st.2tag":"NOI ~€420 000 / год","st.3t":"Продажа единым лотом","st.3p":"Передача готового арендного бизнеса институциональному инвестору или девелоперскому фонду.","st.3tag":"Институциональный exit",
@@ -732,6 +769,7 @@ setLang(saved);
 // lightbox
 $('#planImg').onclick=()=>{$('#lb img').src=$('#planImg').src;$('#lb').classList.add('on')};
 $('#lb').onclick=()=>$('#lb').classList.remove('on');
+$$('.g-grid figure').forEach(f=>f.onclick=()=>{$('#lb img').src=f.querySelector('img').src;$('#lb').classList.add('on')});
 
 // header
 const hdr=$('#hdr');const onS=()=>hdr.classList.toggle('solid',scrollY>60);addEventListener('scroll',onS,{passive:true});onS();

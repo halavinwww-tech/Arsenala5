@@ -56,10 +56,10 @@ priv = (root / "privacy.src.html").read_text(encoding="utf-8").replace("__BASE__
 og = root / "og-cover.jpg"
 try:
     from PIL import Image, ImageDraw, ImageFont
-    im = Image.open(root / "assets/photo-2.jpg").convert("RGB")
+    im = Image.open(root / "assets/hero.jpg").convert("RGB")
     w, h = 1200, 630
     im = im.resize((w, int(im.height * w / im.width)), Image.LANCZOS)
-    top = int(im.height * 0.28); im = im.crop((0, top, w, top + h))
+    top = int(im.height * 0.30); im = im.crop((0, top, w, top + h))
     shade = Image.new("RGB", (w, h), (15, 28, 46))
     mask = Image.linear_gradient("L").resize((w, h)).point(lambda v: 70 + v * 0.62)
     im = Image.composite(shade, im, mask)
