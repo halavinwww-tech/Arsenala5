@@ -1,28 +1,29 @@
 # Trīs Maisi — Arsenāla iela 5, Rīga
 
-Vizītkartes lapa vēsturiskajam noliktavu kompleksam Arsenāla ielā 5 (Vecrīga). LV / EN / RU.
+Vietne: **https://arsenala5.lv/** (LV) · **/en/** · **/ru/** — GitHub Pages, īpašnieks SIA «Arsenāla 5».
 
 ## Faili
-- `index.html` — **gatavā lapa** (visi attēli iešūti base64, fails pašpietiekams — to var sūtīt vienu pašu).
-- `src.html` — avota fails, ko rediģē (attēli norādīti kā `assets/*.jpg`).
-- `privacy.src.html` → `privacy.html` — privātuma politika (LV/EN/RU).
-- `build.py` — būvē visu: `index.html`, `privacy.html`, `robots.txt`, `sitemap.xml`, `llms.txt`, `og-cover.jpg`.
-  Vietnes adrese ir mainīgajā `BASE` build.py sākumā — mainot domēnu, nomaini tikai to.
-- `assets/` — oriģinālie attēli (fotogrāfijas, plāni, griezums, fasāde).
+- `src.html` — **vienīgais lapas avots**: LV teksts HTML, EN/RU tulkojumi `I18N` objektā skriptā, plānu tabulas `PLANS`.
+- `privacy.src.html` — privātuma politika (LV/EN/RU vienā lapā, `?lang=en|ru`).
+- `build.py` — ģenerē visu pārējo (nelabo ģenerētos failus ar roku):
+  - `index.html`, `en/index.html`, `ru/index.html` — katrai valodai sava indeksējama lapa ar hreflang;
+  - `privacy.html`, `404.html`, `robots.txt`, `sitemap.xml` (ar hreflang), `llms.txt`, `og-cover.jpg`, favicon faili;
+  - `Arsenala5-Tris-Maisi.html` — **viens pašpietiekams fails sūtīšanai** (attēli iešūti, valodu pārslēgs strādā bez interneta). Nav repo (.gitignore).
+- `assets/` — attēli (vietnē tiek ielādēti kā atsevišķi faili — ātrāka lapa, labāks SEO).
+- `CNAME` — domēns arsenala5.lv.
+- `<atslēga>.txt` + `.indexnow-key` — IndexNow atslēga (Bing/Yandex/Seznam ātrai indeksēšanai).
 
 ## Rediģēšana
-1. Labo `src.html` / `privacy.src.html` (nekad nelabo ģenerētos failus tieši) (teksti LV — HTML; EN/RU — `I18N` objektā skriptā; plānu tabulas — `PLANS`).
+1. Labo `src.html` / `privacy.src.html`.
 2. `python3 build.py`
-3. Lokāli apskatīt: `python3 -m http.server 8765` → http://localhost:8765
-
-## Avoti
-- *Arsenala_5_New Look.pdf* — skiču projekts.
-- *Business_Plan_Tris_Maisi_RU.pdf* — CAPEX, GDV, ROI/IRR, stratēģijas.
+3. Lokāli: `python3 -m http.server 8765` → http://localhost:8765
+4. `git add -A && git commit && git push`
 
 ## SEO / GEO
-- Meta, Open Graph, Twitter kartīte, canonical, geo meta tagi.
-- JSON-LD: Organization, WebSite, LandmarksOrHistoricalBuildings, FAQPage.
-- Redzama BUJ sadaļa (LV/EN/RU), `llms.txt` ar faktiem AI meklētājiem, `sitemap.xml`, `robots.txt`.
+- Atsevišķi URL katrai valodai, `hreflang` + `x-default`, lokalizēti title/description/OG/Twitter.
+- JSON-LD: Organization, WebSite, LandmarksOrHistoricalBuildings, FAQPage (katrā valodā).
+- Redzama BUJ sadaļa, `llms.txt` ar faktiem AI meklētājiem, `sitemap.xml`, `robots.txt`, alt teksti attēliem.
+- Jāizdara īpašniekam: Google Search Console un Bing Webmaster Tools — pievienot arsenala5.lv un iesniegt `https://arsenala5.lv/sitemap.xml`.
 
-## Aizvietojamie dati
-- E-pasts pagaidām nav norādīts (tiks pievienots, kad būs īstais).
+## DNS (NIC.LV)
+4× A 185.199.108–111.153 · 4× AAAA 2606:50c0:8000–8003::153 · CNAME www → halavinwww-tech.github.io

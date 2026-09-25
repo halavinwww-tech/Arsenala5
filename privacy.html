@@ -34,12 +34,13 @@ li{margin:6px 0}
 .back{display:inline-block;margin-top:48px;font-weight:500;text-decoration:none}
 article[lang]{display:none}
 article.on{display:block}
+footer [data-l]{display:none}html[lang=lv] footer [data-l=lv],html[lang=en] footer [data-l=en],html[lang=ru] footer [data-l=ru]{display:inline}
 footer{background:#0a1422;color:rgba(244,242,236,.55);font-size:13px;padding:24px 20px;text-align:center}
 </style>
 </head>
 <body>
 <header><div class="bar">
-  <a class="brand" href="./">TRĪS MAISI</a>
+  <a class="brand" href="/" id="home">TRĪS MAISI</a>
   <div class="lang" role="group" aria-label="Language"><button data-lang="lv">LV</button><button data-lang="en">EN</button><button data-lang="ru">RU</button></div>
 </div></header>
 
@@ -177,7 +178,7 @@ footer{background:#0a1422;color:rgba(244,242,236,.55);font-size:13px;padding:24p
 </article>
 </main>
 
-<footer>© 2026 SIA «Arsenāla 5» · Trīs Maisi · Arsenāla iela 5, Rīga</footer>
+<footer><span data-l="lv">© 2026 SIA «Arsenāla 5» · Visas tiesības aizsargātas</span><span data-l="en">© 2026 SIA “Arsenāla 5” · All rights reserved</span><span data-l="ru">© 2026 SIA «Arsenāla 5» · Все права защищены</span></footer>
 
 <script>
 const T={lv:"Privātuma politika — Trīs Maisi, Arsenāla iela 5",en:"Privacy policy — Trīs Maisi, Arsenāla Street 5",ru:"Политика конфиденциальности — Trīs Maisi, ул. Арсенала, 5"};
@@ -186,10 +187,11 @@ function setLang(l){
   document.documentElement.lang=l;document.title=T[l];
   document.querySelectorAll('article[lang]').forEach(a=>a.classList.toggle('on',a.lang===l));
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  const home=l==='lv'?'/':'/'+l+'/';document.querySelectorAll('#home,.back').forEach(a=>a.href=home);
   try{localStorage.setItem('arsenala5_lang',l)}catch(e){}
 }
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
-let l='lv';try{l=localStorage.getItem('arsenala5_lang')||'lv'}catch(e){}
+let l=new URLSearchParams(location.search).get('lang');if(!l){try{l=localStorage.getItem('arsenala5_lang')}catch(e){}}l=l||'lv';
 setLang(l);
 </script>
 </body>
