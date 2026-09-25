@@ -7,7 +7,7 @@ Ja mainās domēns — nomaini tikai BASE zemāk un palaid `python3 build.py`.
 """
 import base64, re, pathlib, datetime
 
-BASE = "https://halavinwww-tech.github.io/Arsenala5/"
+BASE = "https://arsenala5.lv/"
 
 root = pathlib.Path(__file__).parent
 today = datetime.date.today().isoformat()

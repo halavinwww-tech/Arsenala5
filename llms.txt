@@ -15,5 +15,5 @@
 - Contact person: Aleksejs Halavins, +371 29 205 417, info@arsenala5.lv (SIA "Arsenāla 5").
 
 ## Pages
-- [Home](https://halavinwww-tech.github.io/Arsenala5/): full project overview (LV/EN/RU)
-- [Privacy policy](https://halavinwww-tech.github.io/Arsenala5/privacy.html)
+- [Home](https://arsenala5.lv/): full project overview (LV/EN/RU)
+- [Privacy policy](https://arsenala5.lv/privacy.html)
